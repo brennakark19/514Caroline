@@ -231,7 +231,7 @@ footer .wm{font:500 22px var(--disp);letter-spacing:.34em;color:var(--ink);text-
 <div class="dg">
 <div class="pnl"><span class="eyebrow">Your assumptions</span>
 <div class="pre" id="pre"><button data-p="390000">Cautious · $390K</button><button data-p="425000">Working case · $425K</button><button data-p="460000">Strong finish · $460K</button><button id="rs">Reset</button></div>
-<div class="fld"><div class="t">Purchase price <b id="pv"></b></div><input id="p" type="range" min="260000" max="310000" step="2500" value="290000"></div>
+<div class="fld"><div class="t">Purchase price <b id="pv"></b></div><input id="p" type="range" min="240000" max="310000" step="2500" value="290000"></div>
 <div class="fld"><div class="t">Renovation budget <b id="rv"></b></div><input id="r" type="range" min="50000" max="160000" step="5000" value="85000"></div>
 <div class="fld"><div class="t">Target sale price <b id="vv"></b></div><input id="v" type="range" min="340000" max="500000" step="5000" value="425000"></div>
 <div class="fld"><div class="t">Selling costs <b id="sv"></b></div><input id="s" type="range" min="5" max="8" step="0.5" value="7"></div>
@@ -313,7 +313,7 @@ const first=els[0].s.getBoundingClientRect().top,last=els[els.length-1].s.getBou
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("on");io.unobserve(e.target)}}),{threshold:.15});document.querySelectorAll(".rv,.scope .row").forEach(e=>{e.classList.add("rv");io.observe(e)});
 let tk=0;function on(){if(!tk)tk=requestAnimationFrame(()=>{tk=0;mf();ch()})}addEventListener("scroll",on,{passive:true});addEventListener("resize",on);on();
 /* deal */
-const f$=n=>(n<0?"−$":"$")+Math.abs(Math.round(n)).toLocaleString("en-US"),K=n=>"$"+Math.round(n/1000)+"K",SQ=1529,MIN=250000,MAX=550000;
+const f$=n=>(n<0?"−$":"$")+Math.abs(Math.round(n)).toLocaleString("en-US"),K=n=>"$"+Math.round(n/1000)+"K",SQ=1529,MIN=220000,MAX=550000;
 const ax=$("axis");[300,400,500].forEach(t=>{const d=document.createElement("div");d.className="tick";d.style.left="calc(34px + (100% - 68px) * "+((t*1000-MIN)/(MAX-MIN))+")";d.textContent="$"+t+"K";ax.appendChild(d)});
 const X=v=>"calc(34px + (100% - 68px) * "+cl((v-MIN)/(MAX-MIN))+")";
 function pin(cls,v,top,label,href,h){const a=document.createElement(href?"a":"div");a.className="pin "+cls;a.style.left=X(v);a.style.setProperty("--h",h+"px");if(href){a.href=href;a.target="_blank";a.rel="noopener"}a.innerHTML="<b>"+K(v)+"</b><span>"+label+"</span><i></i>";ax.appendChild(a);return a}
