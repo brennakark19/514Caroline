@@ -4,6 +4,7 @@
 <title>514 Caroline — Renovation Proposal</title>
 <meta name="description" content="A before-and-after renovation proposal for 514 Caroline, Milford, Michigan.">
 <meta name="theme-color" content="#0d100e">
+<meta property="og:type" content="website"><meta property="og:url" content="https://brennakark19.github.io/514Caroline/"><meta property="og:title" content="514 Caroline · A live-in renovation in the Village of Milford"><meta property="og:description" content="A 1901 farmhouse with a covered porch, open kitchen, finished basement and a five-year plan. See every room before and after."><meta property="og:image" content="https://brennakark19.github.io/514Caroline/porch_after.jpg"><meta property="og:image:width" content="1009"><meta property="og:image:height" content="660"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="514 Caroline · A live-in renovation"><meta name="twitter:image" content="https://brennakark19.github.io/514Caroline/porch_after.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
@@ -141,6 +142,74 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 @media(max-width:600px){.yrs b{font-size:11px}}
 .ab{padding:0 0 clamp(40px,6vw,80px)}.abg{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(18px,3vw,40px);margin-top:26px;align-items:start}@media(max-width:860px){.abg{grid-template-columns:1fr}}.abt{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}.abt td{padding:16px 20px;border-bottom:1px solid var(--line);font-size:15px}.abt tr:last-child td{border-bottom:0}.abt td:last-child{text-align:right;font:400 24px var(--disp)}.abt tr.tot td{background:rgba(201,164,108,.08)}.abt tr.tot td:first-child{font-weight:700}.abt tr.tot td:last-child{color:var(--brass2)}.abn p{color:var(--mut);font-size:15px;margin:0 0 14px}.abn p b{color:var(--ink)}.abn .big2{font:300 clamp(28px,3.4vw,44px)/1.15 var(--disp);color:var(--ink);margin:0 0 18px}.abn .big2 em{color:var(--brass2)}
 .cg.cg3{grid-template-columns:repeat(3,1fr)}@media(max-width:820px){.cg.cg3{grid-template-columns:1fr}}
+
+/* hero wipe */
+#hero .hw{z-index:1;clip-path:inset(0 0 0 0);animation:drift 26s ease-in-out infinite alternate,wipe 2.6s cubic-bezier(.7,0,.25,1) 1.1s forwards}
+@keyframes wipe{to{clip-path:inset(0 0 0 100%)}}
+#hero .hl{position:absolute;z-index:1;top:0;bottom:0;left:0;width:2px;background:#fff;box-shadow:0 0 30px 4px rgba(255,236,200,.9);opacity:0;animation:hline 2.6s cubic-bezier(.7,0,.25,1) 1.1s forwards}
+@keyframes hline{0%{left:0;opacity:1}96%{opacity:1}100%{left:100%;opacity:0}}
+@media(max-width:700px){#hero .hl{height:62%;bottom:auto}}
+/* drag compare */
+.frame{touch-action:pan-y;cursor:ew-resize;user-select:none;-webkit-user-select:none}.frame img{-webkit-user-drag:none;user-drag:none}.chap.one .frame{cursor:default}
+.frame .ln:after{content:"\2194";position:absolute;top:50%;left:50%;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;background:rgba(13,16,14,.72);border:2px solid #fff;color:#fff;font:600 18px/40px var(--ui);text-align:center;backdrop-filter:blur(6px)}
+.dh{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font:700 10.5px var(--ui);letter-spacing:.18em;text-transform:uppercase;color:var(--brass2);border:1px solid rgba(201,164,108,.4);border-radius:99px;padding:8px 14px}
+/* finishes */
+.fn{padding:clamp(80px,10vw,140px) 0 20px}
+.fn h2,.bp h2,.ph h2,.pm h2{font:300 clamp(40px,6vw,84px)/1 var(--disp);margin:16px 0 14px}.fn h2 em,.bp h2 em,.ph h2 em,.pm h2 em{color:var(--brass2)}
+.fn .lead,.bp .lead,.ph .lead,.pm .lead{color:var(--mut);max-width:640px;font-size:17px;margin:0}
+.fgp{margin-top:40px}.fgp h3{font:600 11px var(--ui);letter-spacing:.22em;text-transform:uppercase;color:var(--brass);margin:30px 0 14px}
+.fg{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}@media(max-width:900px){.fg{grid-template-columns:repeat(2,1fr)}}
+.sw{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:transform .3s}.sw:hover{transform:translateY(-4px)}
+.sw i{display:block;height:110px;background:var(--c);position:relative}
+.sw i.vein{background:linear-gradient(115deg,transparent 40%,rgba(160,155,145,.35) 42%,transparent 46%),linear-gradient(160deg,transparent 60%,rgba(160,155,145,.25) 62%,transparent 65%),var(--c)}
+.sw i.grain{background:repeating-linear-gradient(90deg,rgba(0,0,0,.08) 0 2px,transparent 2px 9px),repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 1px,transparent 1px 23px),var(--c)}
+.sw i.glass{background:linear-gradient(135deg,rgba(220,235,240,.55),rgba(160,180,185,.25)),linear-gradient(90deg,#2a2f2c 0 3px,transparent 3px),#9aa6a3}
+.sw i.weave{background:repeating-linear-gradient(45deg,rgba(0,0,0,.1) 0 3px,transparent 3px 7px),repeating-linear-gradient(-45deg,rgba(0,0,0,.07) 0 3px,transparent 3px 7px),var(--c)}
+.sw div{padding:12px 14px 14px}.sw b{display:block;font:600 13.5px var(--ui)}.sw span{font-size:12.5px;color:var(--mut)}
+/* budget by project */
+.bp{padding:clamp(70px,9vw,120px) 0 20px}
+.bpg{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(18px,3vw,40px);margin-top:30px;align-items:start}@media(max-width:900px){.bpg{grid-template-columns:1fr}}
+.bi{display:grid;grid-template-columns:1fr 110px;gap:4px 16px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.bi:last-child{border:0}
+.bi .n{font:600 14px var(--ui)}.bi .n small{display:block;font:400 12px var(--ui);color:var(--mut)}.bi b{font:400 24px var(--disp);text-align:right}.bi input{grid-column:1/-1;height:26px}
+.bt{position:sticky;top:90px}.bt .tot{font:300 clamp(46px,6vw,70px)/1 var(--disp);margin:6px 0 4px}
+.bars{margin-top:20px;display:flex;flex-direction:column;gap:7px}.bars div{display:grid;grid-template-columns:110px 1fr 54px;gap:10px;align-items:center;font-size:12px;color:var(--mut)}.bars i{display:block;height:8px;border-radius:4px;background:var(--brass);transition:width .3s}.bars em{font-style:normal;text-align:right;color:var(--ink)}
+.rl{font-size:12.5px;color:var(--mut);margin-top:10px}
+/* phases */
+.ph{padding:clamp(60px,8vw,110px) 0 20px}
+.pg{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:36px}@media(max-width:980px){.pg{grid-template-columns:1fr 1fr}}@media(max-width:540px){.pg{grid-template-columns:1fr}}
+.pc{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;position:relative;overflow:hidden}
+.pc:before{content:"";position:absolute;left:0;top:0;height:3px;width:var(--f,0%);background:var(--brass);transition:width .4s}
+.pc .y{font:600 10.5px var(--ui);letter-spacing:.22em;text-transform:uppercase;color:var(--brass)}.pc h3{font:400 26px/1.1 var(--disp);margin:8px 0 6px}
+.pc .c{font:300 34px var(--disp);color:var(--brass2);margin:10px 0 8px}.pc ul{margin:0;padding:0 0 0 16px;color:var(--mut);font-size:13.5px}.pc li{margin:3px 0}
+.pc.ls{background:linear-gradient(160deg,#243229,#171d19);border-color:rgba(201,164,108,.45)}
+/* payment */
+.pm{padding:clamp(70px,9vw,120px) 0 20px}
+.pmo{font:300 clamp(52px,7vw,84px)/1 var(--disp);letter-spacing:-.02em}.pmo small{font:600 14px var(--ui);color:var(--mut);letter-spacing:0;margin-left:6px}
+/* pdf button */
+#nav a.pdf{font:700 11px var(--ui);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--brass2);border:1px solid rgba(201,164,108,.5);padding:9px 13px;border-radius:99px;margin-left:6px;white-space:nowrap;cursor:pointer}
+@media(max-width:880px){#nav a.pdf{display:none}}
+.fbtn{display:inline-block;margin-top:16px;font:700 11px var(--ui);letter-spacing:.12em;text-transform:uppercase;color:#16120a;background:var(--brass);border:0;border-radius:99px;padding:11px 18px;cursor:pointer}
+/* print */
+@media print{
+:root{--bg:#fff;--bg2:#fff;--panel:#f5f2ec;--ink:#161616;--mut:#555;--line:rgba(0,0,0,.14)}
+@page{margin:12mm}
+*{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{background:#fff;color:#161616;font-size:12px}
+#nav,#rail,.cue,.tag,#lb,.pre,input[type=range],.chips,.dh,.pr,.fbtn,#map,.hl,#hero .hw,#hero #h1,#hero:after,.frame .ln,.frame .tg,.bgb{display:none!important}
+section,.mf,.nr,.deal,.mk,.mp,.pf,.li,.bp,.ph,.pm,.fn,.ab{padding-top:24px!important;padding-bottom:8px!important;background:#fff!important}
+#hero{height:auto;min-height:0;display:block}#hero .hi#h0{position:relative;display:block;opacity:1;animation:none;transform:none;height:auto;width:100%;-webkit-mask-image:none;mask-image:none}
+.hc{padding:16px 0!important;color:#161616}#hero h1{font-size:54px}#hero p.sub{color:#333}.ribbon{position:static;background:#fff;backdrop-filter:none}
+.rv,.mf .big .w{opacity:1!important;transform:none!important}.mf .big{font-size:34px}
+.chap{height:auto!important;break-inside:avoid;page-break-inside:avoid}.chap .st{position:static;height:auto;display:block;padding:14px 0!important;overflow:visible}
+.chap .num{font-size:44px;display:inline-block;margin-right:10px}.chap .num small{display:none}.chap h3{display:inline-block;font-size:26px}.chap .cp{max-width:none;color:#333}
+.frame{width:100%!important;aspect-ratio:auto!important;display:grid;grid-template-columns:1fr 1fr;gap:6px;box-shadow:none;background:none;border-radius:0;overflow:visible}
+.frame>img{position:static!important;width:100%;height:auto;clip-path:none!important;border-radius:6px}
+.frame .hb{position:relative!important;inset:auto!important;aspect-ratio:1;overflow:hidden;clip-path:none!important;border-radius:6px}
+.rooms-h h2,.deal h2,.mk h2,.pf h2,.li h2,.bp h2,.ph h2,.pm h2,.fn h2,.mp h2{font-size:34px}
+.pnl,.cc,.pc,.sw,.nc,.lig div,.kpis div,.abt{break-inside:avoid;box-shadow:none}
+.bt{position:static}.cg{grid-template-columns:repeat(3,1fr)!important}.dg,.bpg,.mg,.abg{grid-template-columns:1fr 1fr!important}
+a{text-decoration:none}footer{margin-top:20px}
+}
 /* market */
 .mk{padding:clamp(70px,9vw,130px) 0 20px}
 .cg{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:40px}
@@ -208,12 +277,13 @@ footer .wm{font:500 22px var(--disp);letter-spacing:.34em;color:var(--ink);text-
 @media(prefers-reduced-motion:reduce){#hero .hi{animation:none}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
 </style></head><body>
 
-<nav id="nav"><a class="wm" href="#top">Caroline</a><a class="l" href="#vision">The vision</a><a class="l" href="#rooms">Room by room</a><a class="l" href="#exterior">Exterior</a><a class="l" href="#numbers">Numbers</a><a class="l" href="#live-in">Live-in plan</a><a class="l" href="#market">Market</a><a class="l" href="#map-sec">Location</a><a class="cta" href="#numbers">Run the numbers</a></nav>
+<nav id="nav"><a class="wm" href="#top">Caroline</a><a class="l" href="#vision">The vision</a><a class="l" href="#rooms">Room by room</a><a class="l" href="#exterior">Exterior</a><a class="l" href="#numbers">Numbers</a><a class="l" href="#live-in">Live-in plan</a><a class="l" href="#market">Market</a><a class="l" href="#map-sec">Location</a><a class="cta" href="#numbers">Run the numbers</a><a class="pdf" id="pdfb" href="#" title="Save this page as a PDF">Save PDF</a></nav>
 <nav id="rail" aria-label="Rooms"></nav>
 
 <header id="hero"><div id="top"></div>
 <img class="hi on" id="h0" alt="Front of 514 Caroline with the covered porch, renovation concept" src="porch_after.jpg"><img class="hi" id="h1" alt="Side courtyard at 514 Caroline, renovation concept" src="courtyard_after.jpg">
-<div class="tag" id="htag" style="color:var(--brass2)">Concept render</div>
+<img class="hi on hw" id="hw" alt="Front of 514 Caroline today" src="porch_before.jpg"><div class="hl"></div>
+<div class="tag" id="htag" style="color:var(--brass2)">Today</div>
 <div class="wrap hc"><div class="eyebrow">A renovation proposal · Village of Milford, Michigan</div>
 <h1 style="margin-top:44px">514<br>Caroline<em>A 1901 farmhouse. A porch worth sitting on.</em></h1>
 <p class="sub">Keep the farmhouse character and the corner lot. Add a covered front porch and a side courtyard, open up the kitchen, and add a half bath off the laundry.</p></div>
@@ -235,7 +305,7 @@ footer .wm{font:500 22px var(--disp);letter-spacing:.34em;color:var(--ink);text-
 </div></section>
 
 <section id="rooms"><div class="wrap rooms-h"><div class="eyebrow">Room by room · scroll to reveal</div>
-<h2>Eleven views inside. <em>Before and after.</em></h2><p>Each room opens as the before photo. Keep scrolling and the renovation concept sweeps across it.</p></div>
+<h2>Eleven views inside. <em>Before and after.</em></h2><p>Each room opens as the before photo. Keep scrolling and the renovation concept sweeps across it, or grab any photo and drag to compare.</p><div class="dh">↔ Drag any photo to compare</div></div>
 <div id="chaps"></div></section>
 
 <section id="exterior"><div class="wrap rooms-h"><div class="eyebrow">Outside · porch and courtyard</div>
@@ -243,6 +313,8 @@ footer .wm{font:500 22px var(--disp);letter-spacing:.34em;color:var(--ink);text-
 <div id="xchaps"></div></section>
 
 
+
+<section class="fn" id="finishes"><div class="wrap"><div class="eyebrow">Finishes &amp; materials · the palette</div><h2>Farmhouse bones. <em>Warm, modern finishes.</em></h2><p class="lead">The concept direction pulled from the lookbook. One palette runs through the house: warm wood, cream and soft whites, matte black accents, and the original blue siding. Final selections still to be made.</p><div class="fgp"><h3>Outside</h3><div class="fg"><div class="sw"><i class="" style="--c:#3e5a77"></i><div><b>Farmhouse blue siding</b><span>Kept as is · whole exterior</span></div></div><div class="sw"><i class="grain" style="--c:#9a6a3f"></i><div><b>Warm timber posts</b><span>Front porch columns and beam</span></div></div><div class="sw"><i class="weave" style="--c:#8d857a"></i><div><b>Stacked stone base</b><span>Porch piers and courtyard grill island</span></div></div><div class="sw"><i class="" style="--c:#1e1e1e"></i><div><b>Matte black fixtures</b><span>Porch lights, sconces, string-light hardware</span></div></div></div><h3>Kitchen &amp; living</h3><div class="fg"><div class="sw"><i class="" style="--c:#ece2cc"></i><div><b>Cream shaker cabinets</b><span>Kitchen perimeter</span></div></div><div class="sw"><i class="grain" style="--c:#8a5a34"></i><div><b>Warm wood island</b><span>Kitchen island and stair rail cap</span></div></div><div class="sw"><i class="vein" style="--c:#f1efe9"></i><div><b>White quartz counters</b><span>Island and perimeter tops</span></div></div><div class="sw"><i class="" style="--c:#202020"></i><div><b>Black dome pendants</b><span>Over the island and dining table</span></div></div></div><h3>Floors, bath &amp; lower level</h3><div class="fg"><div class="sw"><i class="grain" style="--c:#a3764c"></i><div><b>Warm wood-look plank</b><span>Living, kitchen, office, bedrooms</span></div></div><div class="sw"><i class="glass" style="--c:#9aa6a3"></i><div><b>Glass walk-in shower</b><span>Main bath, same fixture locations</span></div></div><div class="sw"><i class="" style="--c:#7f8b6b"></i><div><b>Sage green cabinetry</b><span>Laundry and mudroom built-ins</span></div></div><div class="sw"><i class="weave" style="--c:#cfc2b1"></i><div><b>Soft neutral carpet</b><span>Basement playroom and movie space</span></div></div></div></div></div></section>
 
 <section class="deal" id="numbers"><div class="wrap">
 <div class="eyebrow">The numbers · yours to move</div>
@@ -253,7 +325,7 @@ footer .wm{font:500 22px var(--disp);letter-spacing:.34em;color:var(--ink);text-
 <div class="pnl"><span class="eyebrow">Your assumptions</span>
 <div class="pre" id="pre"><button data-p="390000">Cautious · $390K</button><button data-p="425000">Working case · $425K</button><button data-p="460000">Strong finish · $460K</button><button id="rs">Reset</button></div>
 <div class="fld"><div class="t">Purchase price <b id="pv"></b></div><input id="p" type="range" min="240000" max="310000" step="2500" value="290000"></div>
-<div class="fld"><div class="t">Renovation budget <b id="rv"></b></div><input id="r" type="range" min="50000" max="160000" step="5000" value="85000"></div>
+<div class="fld"><div class="t">Renovation budget <b id="rv"></b></div><input id="r" type="range" min="30000" max="300000" step="500" value="85000" disabled></div><p class="rl">Set project by project in the budget below. <a href="#budget" style="color:var(--brass2)">Adjust the budget ↓</a></p>
 <div class="fld"><div class="t">Target sale price <b id="vv"></b></div><input id="v" type="range" min="340000" max="600000" step="5000" value="425000"></div>
 <div class="fld"><div class="t">Selling costs <b id="sv"></b></div><input id="s" type="range" min="5" max="8" step="0.5" value="7"></div>
 <p class="fine">Buying costs fixed at $6,000. Before ownership costs, taxes and the value of your own labor.</p></div>
@@ -263,6 +335,10 @@ footer .wm{font:500 22px var(--disp);letter-spacing:.34em;color:var(--ink);text-
 <div class="kpis"><div><span>Break-even sale</span><b id="be"></b></div><div><span>Cash in</span><b id="ci"></b></div><div><span>Target per sq ft</span><b id="psf"></b></div><div><span>Selling costs</span><b id="sc"></b></div></div>
 <div class="stk" id="stk"></div><div class="lg" id="lg"></div></div>
 </div></div></section>
+
+<section class="bp" id="budget"><div class="wrap"><div class="eyebrow">Budget by project · where the money goes</div><h2>One budget. <em>Ten projects.</em></h2><p class="lead">Each project has its own allowance. Move any slider and the renovation budget, the profit above and the five-year plan below all update. Start from a lean, do-it-ourselves budget or a contractor-built one.</p><div class="bpg"><div class="pnl"><div class="pre" id="bpre"><button data-s="lean">Lean · we do a lot ourselves</button><button data-s="pro">Contractor · midrange</button></div><div id="bitems"></div></div><div class="pnl bt"><span class="eyebrow">Renovation total</span><div class="tot" id="btot"></div><div id="bcmp" style="color:var(--mut);font-size:13.5px"></div><div class="bars" id="bbars"></div><p class="fine">Allowances are planning figures, not quotes. The contractor preset leans on published 2026 cost ranges (minor midrange kitchen remodel about $28K in the Detroit area; half bath $5K–$15K; basement finishing $25–$50 per sq ft in Detroit; covered front porch $12K–$35K). Get real quotes before relying on any of them.</p></div></div></div></section>
+
+<section class="ph" id="phases"><div class="wrap"><div class="eyebrow">The five-year plan · one phase a year</div><h2>Live in it. <em>Finish it in phases.</em></h2><p class="lead">Because you live there, the work does not have to happen at once. Essentials first, the big rooms next, and the showpieces right before you sell. Costs come from the budget above.</p><div class="pg" id="pgrid"></div></div></section>
 
 <section class="li" id="live-in"><div class="wrap">
 <div class="eyebrow">The live-in flip · the long game</div>
@@ -283,6 +359,8 @@ footer .wm{font:500 22px var(--disp);letter-spacing:.34em;color:var(--ink);text-
 <div class="note" style="margin-top:30px"><b>Tax note.</b> Under IRS rules, if you own and live in the house as your main home for at least 2 of the 5 years before you sell, you may be able to exclude up to $250,000 of gain from income ($500,000 for a married couple filing jointly). A five-year live-in plan is built around this. Confirm your own situation with a tax professional; this is not tax advice.</div>
 <p class="small">Recent pace for context: Zillow shows Milford home values up 4.2% over the year through September 30, 2026. FHFA reported Michigan prices up 5.5% from Q4 2024 to Q4 2025, and 4.5% for the East North Central region from Q2 2025 to Q2 2026. Past growth is not a promise: values can be flat or fall. The projection leaves out the costs of owning while you live there (mortgage interest, property taxes, insurance, upkeep), which you would largely be paying for housing anyway.</p>
 </div></section>
+
+<section class="pm" id="payment"><div class="wrap"><div class="eyebrow">Living there · the monthly cost</div><h2>What it costs <em>to live there.</em></h2><p class="lead">The monthly payment on the purchase price you set above. Renovation is paid separately in phases and is not financed here.</p><div class="dg"><div class="pnl"><span class="eyebrow">Loan assumptions</span><div class="fld"><div class="t">Down payment <b id="mdv"></b></div><input id="md" type="range" min="3" max="25" step="1" value="10"></div><div class="fld"><div class="t">Interest rate (30-year fixed) <b id="mrv"></b></div><input id="mr" type="range" min="5" max="8.5" step="0.05" value="7.2"></div><div class="fld"><div class="t">Property taxes per year <b id="mtv"></b></div><input id="mt" type="range" min="3000" max="10000" step="100" value="6000"></div><div class="fld"><div class="t">Home insurance per year <b id="miv"></b></div><input id="mi" type="range" min="800" max="4000" step="50" value="1800"></div><p class="fine">Rate starts near Freddie Mac’s 30-year average of 7.18% for the week of November 5, 2026. The listing shows $5,097 a year in taxes, but Michigan resets taxable value after a sale, so expect more; confirm with the Village of Milford. Insurance and mortgage insurance are estimates.</p></div><div class="pnl"><span class="eyebrow">Monthly payment</span><div class="pmo" id="mtot"></div><div class="kpis"><div><span>Principal &amp; interest</span><b id="mpi"></b></div><div><span>Taxes</span><b id="mtx"></b></div><div><span>Insurance</span><b id="mins"></b></div><div><span>Mortgage insurance</span><b id="mpm"></b></div></div><div class="kpis"><div><span>Down payment</span><b id="mdp"></b></div><div><span>Loan amount</span><b id="mla"></b></div></div><div class="stk" id="mstk"></div></div></div></div></section>
 
 <section class="mk" id="market"><div class="wrap">
 <div class="eyebrow">Market evidence</div>
@@ -335,7 +413,7 @@ footer .wm{font:500 22px var(--disp);letter-spacing:.34em;color:var(--ink);text-
 <li><b>Margin is thin at the working case:</b> about $14K at $425K resale, and a loss at $390K. Cost control is the project.</li></ul></div>
 </div></section>
 
-<footer><div class="wrap"><div class="wm">Caroline</div>All “after” images are AI-generated design concepts based on the before photos (514 Caroline renovation lookbook, November 2026). They are not construction drawings or a promise of existing conditions. Allowances are planning figures, not contractor quotes. Sale prices are preliminary comparisons, not an appraisal; no physical inspection or formal comparative market analysis has been performed. Prepared November 16, 2026.</div></footer>
+<footer><div class="wrap"><div class="wm">Caroline</div><button class="fbtn" id="pdfb2">Save as PDF</button><br><br>All “after” images are AI-generated design concepts based on the before photos (514 Caroline renovation lookbook, November 2026). They are not construction drawings or a promise of existing conditions. Allowances are planning figures, not contractor quotes. Sale prices are preliminary comparisons, not an appraisal; no physical inspection or formal comparative market analysis has been performed. Prepared November 16, 2026.</div></footer>
 
 <div id="lb"><button aria-label="Close">×</button><img alt=""><h3></h3><p></p></div>
 
@@ -352,13 +430,13 @@ function mf(){const r=mp.getBoundingClientRect(),p=cl((innerHeight*.9-r.top)/(in
 const chaps=$("chaps"),rail=$("rail"),els=[],xels=[];
 function mk(L,box,pf,isRoom){L.forEach((r,i)=>{const s=document.createElement("div");s.className="chap";s.id=pf+(i+1);
 s.innerHTML='<div class="st"><div class="bgb" style="background-image:url('+r.k+'_after.jpg)"></div><div class="txt"><div class="num">'+String(i+1).padStart(2,"0")+'<small>/ '+L.length+'</small></div><div class="zn">'+r.z+'</div><h3>'+r.t+'</h3><p class="cp">'+r.c+'</p><div class="chips">'+(r.one?'<span class="chip on">Before · inset</span><span class="chip on">After · concept</span>':'<span class="chip on">Before</span><span class="chip">After · concept</span>')+'</div></div>'+
-'<div class="frame" style="--r:'+r.r+'">'+(r.one?'':'<img src="'+r.k+'_before.jpg" alt="'+r.t+' before"'+(i<2&&isRoom?'':' loading="lazy"')+' decoding="async">')+'<img class="a'+(r.one?' one':'')+'" src="'+r.k+'_after.jpg" alt="'+r.t+' after concept"'+(i<2&&isRoom?'':' loading="lazy"')+' decoding="async">'+(r.one?'':'<div class="ln"></div><span class="tg l">Before</span><span class="tg r">After</span>')+'</div><div class="pr"><i></i></div></div>';
+'<div class="frame" style="--r:'+r.r+'">'+(r.one?'':'<img src="'+r.k+'_before.jpg" alt="'+r.t+' before"'+(i<2&&isRoom?'':' loading="lazy"')+' decoding="async">')+'<img class="a'+(r.one?' one':'')+'" src="'+r.k+'_after.jpg" alt="'+r.t+' after concept"'+(i<2&&isRoom?'':' loading="lazy"')+' decoding="async">'+(r.one?'':'<div class="ln"></div><span class="tg l">After</span><span class="tg r">Before</span>')+'</div><div class="pr"><i></i></div></div>';
 if(r.sbs){const fr=s.querySelector(".frame");fr.querySelectorAll("img").forEach(x=>x.remove());fr.insertAdjacentHTML("afterbegin",'<div class="hb"><img src="'+r.sbs+'" alt="'+r.t+' before" loading="lazy" style="left:0"></div><div class="hb a"><img src="'+r.sbs+'" alt="'+r.t+' after concept" loading="lazy" style="left:-100.72%"></div>');s.querySelector(".bgb").style.backgroundImage='url("'+r.sbs+'")'}
 box.appendChild(s);if(r.one){s.classList.add('one');}const f=s.querySelector(".frame"),chips=s.querySelectorAll(".chip"),pr=s.querySelector(".pr i");(isRoom?els:xels).push({s,f,chips,pr});
 if(!isRoom)return;const a=document.createElement("a");a.href="#c"+(i+1);a.innerHTML="<span>"+String(i+1).padStart(2,"0")+" · "+r.t+"</span>";rail.appendChild(a)})}
 mk(ROOMS,chaps,"c",1);mk(XR,$("xchaps"),"x",0);
 const dots=[...rail.children];
-function ch(){let cur=-1;xels.forEach(e=>{const r=e.s.getBoundingClientRect(),h=e.s.offsetHeight-innerHeight;if(r.bottom<-50||r.top>innerHeight+50)return;const p=cl(-r.top/h);if(e.s.classList.contains("one")){e.pr.style.width=(p*100)+"%";return}const w=ea(cl((p-.1)/.5));e.f.style.setProperty("--w",(w*100)+"%");e.f.querySelector(".ln").style.opacity=w>.01&&w<.99?.9:0;e.chips[0].classList.toggle("on",w<.5);e.chips[1].classList.toggle("on",w>=.5);e.pr.style.width=(p*100)+"%"});els.forEach((e,i)=>{const r=e.s.getBoundingClientRect(),h=e.s.offsetHeight-innerHeight;if(r.bottom<-50||r.top>innerHeight+50)return;const p=cl(-r.top/h);const w=ea(cl((p-.1)/.5));e.f.style.setProperty("--w",(w*100)+"%");e.f.querySelector(".ln").style.opacity=w>.01&&w<.99?.9:0;e.chips[0].classList.toggle("on",w<.5);e.chips[1].classList.toggle("on",w>=.5);e.pr.style.width=(p*100)+"%";if(r.top<=innerHeight*.5&&r.bottom>innerHeight*.5)cur=i});
+function ch(){let cur=-1;xels.forEach(e=>{const r=e.s.getBoundingClientRect(),h=e.s.offsetHeight-innerHeight;if(r.bottom<-50||r.top>innerHeight+50){e.man=0;return}const p=cl(-r.top/h);if(e.s.classList.contains("one")){e.pr.style.width=(p*100)+"%";return}if(e.man){e.pr.style.width=(p*100)+"%";return}const w=ea(cl((p-.1)/.5));e.f.style.setProperty("--w",(w*100)+"%");e.f.querySelector(".ln").style.opacity=w>.01&&w<.99?.9:0;e.chips[0].classList.toggle("on",w<.5);e.chips[1].classList.toggle("on",w>=.5);e.pr.style.width=(p*100)+"%"});els.forEach((e,i)=>{const r=e.s.getBoundingClientRect(),h=e.s.offsetHeight-innerHeight;if(r.bottom<-50||r.top>innerHeight+50){e.man=0;return}const p=cl(-r.top/h);if(r.top<=innerHeight*.5&&r.bottom>innerHeight*.5)cur=i;if(e.man){e.pr.style.width=(p*100)+"%";return}const w=ea(cl((p-.1)/.5));e.f.style.setProperty("--w",(w*100)+"%");e.f.querySelector(".ln").style.opacity=w>.01&&w<.99?.9:0;e.chips[0].classList.toggle("on",w<.5);e.chips[1].classList.toggle("on",w>=.5);e.pr.style.width=(p*100)+"%";if(r.top<=innerHeight*.5&&r.bottom>innerHeight*.5)cur=i});
 const first=els[0].s.getBoundingClientRect().top,last=els[els.length-1].s.getBoundingClientRect().bottom;rail.classList.toggle("on",first<innerHeight*.5&&last>innerHeight*.5);dots.forEach((d,i)=>d.classList.toggle("cur",i===cur))}
 /* reveal */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("on");io.unobserve(e.target)}}),{threshold:.15});document.querySelectorAll(".rv,.scope .row").forEach(e=>{e.classList.add("rv");io.observe(e)});
@@ -394,6 +472,55 @@ document.querySelectorAll("#pre button[data-p]").forEach(b=>b.classList.toggle("
 document.querySelectorAll("#pre button[data-p]").forEach(b=>b.onclick=()=>{$("v").value=b.dataset.p;calc()});
 $("rs").onclick=()=>{$("p").value=290000;$("r").value=85000;$("v").value=425000;$("s").value=7;calc()};
 calc();
+
+
+/* drag to compare */
+els.concat(xels).forEach(e=>{if(e.s.classList.contains("one"))return;const f=e.f;let dn=0;
+const set=x=>{const b=f.getBoundingClientRect(),w=cl((x-b.left)/b.width);e.man=1;f.style.setProperty("--w",(w*100)+"%");f.querySelector(".ln").style.opacity=.95;e.chips[0].classList.toggle("on",w<.5);e.chips[1].classList.toggle("on",w>=.5)};
+f.addEventListener("pointerdown",ev=>{if(ev.pointerType==="mouse")ev.preventDefault();dn=1;set(ev.clientX);try{f.setPointerCapture(ev.pointerId)}catch(_){}});
+f.addEventListener("pointermove",ev=>{if(dn)set(ev.clientX)});
+["pointerup","pointercancel","lostpointercapture"].forEach(t=>f.addEventListener(t,()=>{dn=0}))});
+/* hero wipe end */
+(function(){const hw=$("hw"),tg=$("htag");if(!hw)return;const done=()=>{tg.textContent="Concept render";setTimeout(()=>{hw.remove();const l=document.querySelector("#hero .hl");l&&l.remove()},200)};
+if(matchMedia("(prefers-reduced-motion: reduce)").matches){done();return}setTimeout(done,3800)})();
+/* save pdf */
+addEventListener("beforeprint",()=>{$("h0").src="porch_after.jpg"});
+["pdfb","pdfb2"].forEach(id=>{const b=$(id);b&&b.addEventListener("click",ev=>{ev.preventDefault();document.querySelectorAll("img[loading=lazy]").forEach(i=>i.loading="eager");setTimeout(()=>window.print(),400)})});
+/* budget by project */
+const BI=[["kitchen","Kitchen + dining","Cabinets, island, counters, lighting",10000,60000,20000,32000,2,"Kitchen"],
+["bath","Main bath + walk-in shower","Same fixture locations",5000,30000,9000,18000,1,"Main bath"],
+["half","Half bath off the laundry","New plumbing, fixtures, permit",3000,20000,6000,10000,1,"Half bath"],
+["laundry","Laundry + mudroom built-ins","Bench, cubbies, cabinets",1000,12000,3000,6000,3,"Laundry"],
+["floor","Flooring throughout","Wood-look plank, stairs",2000,15000,5000,8000,1,"Flooring"],
+["paint","Paint, lighting + office","Walls, fixtures, finishes",1000,15000,4000,6000,1,"Paint + light"],
+["base","Finished basement","~359 sq ft playroom + movie space",4000,25000,9000,14000,3,"Basement"],
+["porch","Covered front porch","Posts, roof, stone base, lighting",8000,40000,14000,22000,4,"Porch"],
+["court","Side courtyard","Pavers, grill island, string lights",3000,35000,9000,15000,5,"Courtyard"],
+["cont","Contingency","Surprises in a 1901 house",0,20000,6000,8000,0,"Contingency"]];
+const bit=$("bitems");BI.forEach(b=>{const d=document.createElement("div");d.className="bi";d.innerHTML='<div class="n">'+b[1]+'<small>'+b[2]+'</small></div><b id="bv_'+b[0]+'"></b><input id="b_'+b[0]+'" type="range" min="'+b[3]+'" max="'+b[4]+'" step="500" value="'+b[5]+'">';bit.appendChild(d)});
+const PH=[[1,"Move in","Essentials first"],[2,"The kitchen","The heart of the house"],[3,"Lower level","Basement + laundry"],[4,"Curb appeal","The front porch"],[5,"Showpiece + sell","Courtyard, then list"]];
+function bud(){let t=0;const v={};BI.forEach(b=>{const e=$("b_"+b[0]);v[b[0]]=+e.value;t+=+e.value;e.style.setProperty("--pct",((e.value-e.min)/(e.max-e.min)*100)+"%");$("bv_"+b[0]).textContent=K(+e.value)});
+$("btot").textContent=f$(t);$("bcmp").textContent="Lean preset "+f$(BI.reduce((a,b)=>a+b[5],0))+" · contractor preset "+f$(BI.reduce((a,b)=>a+b[6],0));
+const mx=Math.max(...BI.map(b=>v[b[0]]));$("bbars").innerHTML=BI.map(b=>'<div><span>'+b[8]+'</span><i style="width:'+(v[b[0]]/mx*100)+'%"></i><em>'+K(v[b[0]])+'</em></div>').join("");
+const yr=PH.map(p=>BI.filter(b=>b[7]===p[0]));const ys=yr.map(a=>a.reduce((s,b)=>s+v[b[0]],0)),ym=Math.max(...ys);
+$("pgrid").innerHTML=PH.map((p,i)=>'<div class="pc'+(i===4?' ls':'')+'" style="--f:'+(ys[i]/ym*100)+'%"><div class="y">Year '+p[0]+'</div><h3>'+p[1]+'</h3><div style="color:var(--mut);font-size:13px">'+p[2]+'</div><div class="c">'+K(ys[i])+'</div><ul>'+yr[i].map(b=>'<li>'+b[1]+'</li>').join("")+(i===4?'<li>List and sell, around year five</li>':'')+'</ul></div>').join("")+'';
+$("pgrid").insertAdjacentHTML("beforeend",'<p class="fine" style="grid-column:1/-1">Plus a '+K(v.cont)+' contingency held in reserve across all five years.</p>');
+document.querySelectorAll("#bpre button").forEach(x=>x.classList.toggle("on",BI.every(b=>v[b[0]]===b[x.dataset.s==="lean"?5:6])));
+$("r").value=t;calc()}
+BI.forEach(b=>$("b_"+b[0]).addEventListener("input",bud));
+function setPre(k){BI.forEach(b=>{$("b_"+b[0]).value=b[k==="lean"?5:6]});bud()}
+document.querySelectorAll("#bpre button").forEach(x=>x.onclick=()=>setPre(x.dataset.s));
+$("rs").onclick=()=>{$("p").value=290000;$("v").value=425000;$("s").value=7;setPre("lean")};
+/* monthly payment */
+function pay(){const P=+$("p").value,d=+$("md").value,r=+$("mr").value,t=+$("mt").value,ins=+$("mi").value;
+["md","mr","mt","mi"].forEach(i=>{const e=$(i);e.style.setProperty("--pct",((e.value-e.min)/(e.max-e.min)*100)+"%")});
+const dp=P*d/100,L=P-dp,i=r/1200,n=360,pi=L*i/(1-Math.pow(1+i,-n)),pm=d<20?L*0.005/12:0,tx=t/12,iv=ins/12,tot=pi+pm+tx+iv;
+$("mdv").textContent=d+"%";$("mrv").textContent=r.toFixed(2)+"%";$("mtv").textContent=f$(t);$("miv").textContent=f$(ins);
+$("mtot").innerHTML=f$(tot)+"<small>/ month</small>";$("mpi").textContent=f$(pi);$("mtx").textContent=f$(tx);$("mins").textContent=f$(iv);$("mpm").textContent=pm?f$(pm):"None";$("mdp").textContent=f$(dp);$("mla").textContent=f$(L);
+const sg=[[pi,"#6f8a76","Principal & interest"],[tx,"#c9a46c","Taxes"],[iv,"#e2c898","Insurance"],[pm,"#5b6660","Mortgage insurance"]];
+$("mstk").innerHTML=sg.filter(x=>x[0]>0).map(x=>'<i title="'+x[2]+'" style="width:'+(x[0]/tot*100)+'%;background:'+x[1]+'"></i>').join("")}
+["md","mr","mt","mi","p"].forEach(i=>$(i).addEventListener("input",pay));
+bud();pay();
 
 /* live-in hold */
 function hold(){const p=+$("p").value,r=+$("r").value,v=+$("v").value,s=+$("s").value,y=+$("hy").value,g=+$("hg").value,ci=p+r+6000;
