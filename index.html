@@ -200,7 +200,7 @@ footer .wm{font:500 22px var(--disp);letter-spacing:.34em;color:var(--ink);text-
 <nav id="rail" aria-label="Rooms"></nav>
 
 <header id="hero"><div id="top"></div>
-<img class="hi on" id="h0" alt="Front of 514 Caroline with the covered porch, renovation concept" src="img/porch_after.jpg"><img class="hi" id="h1" alt="Side courtyard at 514 Caroline, renovation concept" src="img/courtyard_after.jpg">
+<img class="hi on" id="h0" alt="Front of 514 Caroline with the covered porch, renovation concept" src="porch_after.jpg"><img class="hi" id="h1" alt="Side courtyard at 514 Caroline, renovation concept" src="courtyard_after.jpg">
 <div class="tag" id="htag" style="color:var(--brass2)">Concept render</div>
 <div class="wrap hc"><div class="eyebrow">A renovation proposal · Village of Milford, Michigan</div>
 <h1 style="margin-top:44px">514<br>Caroline<em>A 1901 farmhouse. A porch worth sitting on.</em></h1>
@@ -294,15 +294,15 @@ const ROOMS=[{"k": "kview1", "t": "Open the kitchen", "c": "A modern island, a s
 const $=id=>document.getElementById(id),cl=(x,a=0,b=1)=>Math.max(a,Math.min(b,x)),ea=x=>x*x*(3-2*x);
 /* nav + hero cross-fade */
 const nav=$("nav");function nv(){nav.classList.toggle("on",scrollY>40)}addEventListener("scroll",nv,{passive:true});nv();
-const HL=["porch_after","courtyard_after","kview2_after","kview1_after"],HT=["Front porch · concept","Courtyard · concept","Kitchen · concept","Kitchen + dining · concept"];let hs=0,hi=0;const h0=$("h0"),h1=$("h1"),ht=$("htag");HL.slice(2).forEach(k=>{const i=new Image();i.src="img/"+k+".jpg"});setInterval(()=>{hi=(hi+1)%HL.length;hs^=1;const nx=hs?h1:h0,pv=hs?h0:h1;nx.src="img/"+HL[hi]+".jpg";nx.classList.add("on");pv.classList.remove("on");ht.textContent=HT[hi]},5200);
+const HL=["porch_after","courtyard_after","kview2_after","kview1_after"],HT=["Front porch · concept","Courtyard · concept","Kitchen · concept","Kitchen + dining · concept"];let hs=0,hi=0;const h0=$("h0"),h1=$("h1"),ht=$("htag");HL.slice(2).forEach(k=>{const i=new Image();i.src=""+k+".jpg"});setInterval(()=>{hi=(hi+1)%HL.length;hs^=1;const nx=hs?h1:h0,pv=hs?h0:h1;nx.src=""+HL[hi]+".jpg";nx.classList.add("on");pv.classList.remove("on");ht.textContent=HT[hi]},5200);
 /* manifesto word reveal */
 const mp=$("mfp");const mw=[];(function wrap(n){[...n.childNodes].forEach(c=>{if(c.nodeType===3){const f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(t=>{if(!t.trim()){f.appendChild(document.createTextNode(t));return}const s=document.createElement("span");s.className="w";s.textContent=t;mw.push(s);f.appendChild(s)});c.replaceWith(f)}else if(c.nodeType===1)wrap(c)})})(mp);
 function mf(){const r=mp.getBoundingClientRect(),p=cl((innerHeight*.9-r.top)/(innerHeight*.55+r.height*.5));const n=Math.floor(p*mw.length*1.15);mw.forEach((w,i)=>w.classList.toggle("on",i<n))}
 /* chapters */
 const chaps=$("chaps"),rail=$("rail"),els=[],xels=[];
 function mk(L,box,pf,isRoom){L.forEach((r,i)=>{const s=document.createElement("div");s.className="chap";s.id=pf+(i+1);
-s.innerHTML='<div class="st"><div class="bgb" style="background-image:url(img/'+r.k+'_after.jpg)"></div><div class="txt"><div class="num">'+String(i+1).padStart(2,"0")+'<small>/ '+L.length+'</small></div><div class="zn">'+r.z+'</div><h3>'+r.t+'</h3><p class="cp">'+r.c+'</p><div class="chips">'+(r.one?'<span class="chip on">Before · inset</span><span class="chip on">After · concept</span>':'<span class="chip on">Before</span><span class="chip">After · concept</span>')+'</div></div>'+
-'<div class="frame" style="--r:'+r.r+'">'+(r.one?'':'<img src="img/'+r.k+'_before.jpg" alt="'+r.t+' before"'+(i<2&&isRoom?'':' loading="lazy"')+' decoding="async">')+'<img class="a'+(r.one?' one':'')+'" src="img/'+r.k+'_after.jpg" alt="'+r.t+' after concept"'+(i<2&&isRoom?'':' loading="lazy"')+' decoding="async">'+(r.one?'':'<div class="ln"></div><span class="tg l">Before</span><span class="tg r">After</span>')+'</div><div class="pr"><i></i></div></div>';
+s.innerHTML='<div class="st"><div class="bgb" style="background-image:url('+r.k+'_after.jpg)"></div><div class="txt"><div class="num">'+String(i+1).padStart(2,"0")+'<small>/ '+L.length+'</small></div><div class="zn">'+r.z+'</div><h3>'+r.t+'</h3><p class="cp">'+r.c+'</p><div class="chips">'+(r.one?'<span class="chip on">Before · inset</span><span class="chip on">After · concept</span>':'<span class="chip on">Before</span><span class="chip">After · concept</span>')+'</div></div>'+
+'<div class="frame" style="--r:'+r.r+'">'+(r.one?'':'<img src="'+r.k+'_before.jpg" alt="'+r.t+' before"'+(i<2&&isRoom?'':' loading="lazy"')+' decoding="async">')+'<img class="a'+(r.one?' one':'')+'" src="'+r.k+'_after.jpg" alt="'+r.t+' after concept"'+(i<2&&isRoom?'':' loading="lazy"')+' decoding="async">'+(r.one?'':'<div class="ln"></div><span class="tg l">Before</span><span class="tg r">After</span>')+'</div><div class="pr"><i></i></div></div>';
 box.appendChild(s);if(r.one){s.classList.add('one');}const f=s.querySelector(".frame"),chips=s.querySelectorAll(".chip"),pr=s.querySelector(".pr i");(isRoom?els:xels).push({s,f,chips,pr});
 if(!isRoom)return;const a=document.createElement("a");a.href="#c"+(i+1);a.innerHTML="<span>"+String(i+1).padStart(2,"0")+" · "+r.t+"</span>";rail.appendChild(a)})}
 mk(ROOMS,chaps,"c",1);mk(XR,$("xchaps"),"x",0);
