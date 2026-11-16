@@ -129,6 +129,16 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 .kpis div{background:var(--panel);padding:16px 18px}.kpis span{font:600 10px var(--ui);letter-spacing:.18em;text-transform:uppercase;color:var(--mut)}.kpis b{display:block;font:400 28px/1.15 var(--disp);margin-top:4px}
 .stk{display:flex;height:40px;border-radius:8px;overflow:hidden;margin-top:26px;background:var(--line);gap:2px}.stk i{display:block;height:100%;transition:width .35s}
 .lg{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:14px;font-size:12px;color:var(--mut)}.lg span:before{content:"";display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:6px;background:var(--c)}
+.li{padding:clamp(80px,10vw,140px) 0 20px;background:linear-gradient(180deg,var(--bg),var(--bg2) 18%,var(--bg2) 82%,var(--bg))}
+.li h2{font:300 clamp(40px,6vw,84px)/1 var(--disp);margin:16px 0 14px}.li h2 em{color:var(--brass2)}.li .lead{color:var(--mut);max-width:680px;font-size:17px;margin:0}
+.lig{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border-radius:12px;overflow:hidden;margin-top:34px}
+.lig div{background:var(--panel);padding:22px}.lig b{display:block;font:300 34px/1 var(--disp);color:var(--brass);margin-bottom:10px}.lig h3{font:600 12px var(--ui);letter-spacing:.16em;text-transform:uppercase;margin:0 0 6px}.lig p{margin:0;color:var(--mut);font-size:14px}
+@media(max-width:800px){.lig{grid-template-columns:1fr}}
+.yrs{display:flex;align-items:flex-end;gap:8px;height:190px;margin-top:28px;padding-top:24px}
+.yrs div{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;min-width:0}
+.yrs i{display:block;width:100%;border-radius:6px 6px 0 0;background:linear-gradient(180deg,var(--brass2),var(--brass));opacity:.85;transition:height .35s}
+.yrs div.now i{background:#6f8a76}.yrs b{font:500 15px var(--disp);margin-bottom:6px;white-space:nowrap}.yrs span{font:600 10px var(--ui);letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-top:8px}
+@media(max-width:600px){.yrs b{font-size:11px}}
 /* market */
 .mk{padding:clamp(70px,9vw,130px) 0 20px}
 .cg{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:40px}
@@ -196,7 +206,7 @@ footer .wm{font:500 22px var(--disp);letter-spacing:.34em;color:var(--ink);text-
 @media(prefers-reduced-motion:reduce){#hero .hi{animation:none}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
 </style></head><body>
 
-<nav id="nav"><a class="wm" href="#top">Caroline</a><a class="l" href="#vision">The vision</a><a class="l" href="#rooms">Room by room</a><a class="l" href="#exterior">Exterior</a><a class="l" href="#numbers">Numbers</a><a class="l" href="#market">Market</a><a class="l" href="#map-sec">Location</a><a class="cta" href="#numbers">Run the numbers</a></nav>
+<nav id="nav"><a class="wm" href="#top">Caroline</a><a class="l" href="#vision">The vision</a><a class="l" href="#rooms">Room by room</a><a class="l" href="#exterior">Exterior</a><a class="l" href="#numbers">Numbers</a><a class="l" href="#live-in">Live-in plan</a><a class="l" href="#market">Market</a><a class="l" href="#map-sec">Location</a><a class="cta" href="#numbers">Run the numbers</a></nav>
 <nav id="rail" aria-label="Rooms"></nav>
 
 <header id="hero"><div id="top"></div>
@@ -243,6 +253,26 @@ footer .wm{font:500 22px var(--disp);letter-spacing:.34em;color:var(--ink);text-
 <div class="stk" id="stk"></div><div class="lg" id="lg"></div></div>
 </div></div></section>
 
+<section class="li" id="live-in"><div class="wrap">
+<div class="eyebrow">The live-in flip · the long game</div>
+<h2>Live in it for five years. <em>Let time do the rest.</em></h2>
+<p class="lead">This is not a quick turn. The plan is to buy 514 Caroline, make it home, do the work while living there, and sell in about five years. The renovation adds value, and so does the time spent living in it.</p>
+<div class="lig"><div><b>01</b><h3>Buy low, move in</h3><p>Buy at a negotiated price and live in the house as a primary home from day one.</p></div><div><b>02</b><h3>Renovate over time</h3><p>Do the work in phases while living there, without paying rent somewhere else during the project.</p></div><div><b>03</b><h3>Sell around year five</h3><p>Sell the finished house after roughly five years, with appreciation working on top of the renovation.</p></div></div>
+<div class="dg">
+<div class="pnl"><span class="eyebrow">Your hold assumptions</span>
+<div class="pre" id="gpre"><button data-g="0">Flat · 0%</button><button data-g="2">Cautious · 2%</button><button data-g="3">Steady · 3%</button><button data-g="4.5">Recent pace · 4.5%</button></div>
+<div class="fld"><div class="t">Years living there <b id="hyv"></b></div><input id="hy" type="range" min="1" max="10" step="1" value="5"></div>
+<div class="fld"><div class="t">Yearly value growth <b id="hgv"></b></div><input id="hg" type="range" min="0" max="6" step="0.5" value="3"></div>
+<p class="fine">Starts from the finished value you set in the numbers above (target sale price), then grows each year. Purchase, renovation and selling costs come from above too.</p></div>
+<div class="pnl"><span class="eyebrow">At move-out</span>
+<div class="eyebrow" style="color:var(--mut)">Projected sale price</div><div id="hfv" style="font:300 clamp(46px,6.5vw,76px)/1 var(--disp);letter-spacing:-.02em"></div>
+<div class="kpis"><div><span>Added by time alone</span><b id="hap"></b></div><div><span>Profit if sold today</span><b id="hnow"></b></div><div><span>Profit at move-out</span><b id="hpr"></b></div><div><span>Gain vs. flipping now</span><b id="hdif"></b></div></div>
+<div class="yrs" id="yrs"></div></div>
+</div>
+<div class="note" style="margin-top:30px"><b>Tax note.</b> Under IRS rules, if you own and live in the house as your main home for at least 2 of the 5 years before you sell, you may be able to exclude up to $250,000 of gain from income ($500,000 for a married couple filing jointly). A five-year live-in plan is built around this. Confirm your own situation with a tax professional; this is not tax advice.</div>
+<p class="small">Recent pace for context: Zillow shows Milford home values up 4.2% over the year through September 30, 2026. FHFA reported Michigan prices up 5.5% from Q4 2024 to Q4 2025, and 4.5% for the East North Central region from Q2 2025 to Q2 2026. Past growth is not a promise: values can be flat or fall. The projection leaves out the costs of owning while you live there (mortgage interest, property taxes, insurance, upkeep), which you would largely be paying for housing anyway.</p>
+</div></section>
+
 <section class="mk" id="market"><div class="wrap">
 <div class="eyebrow">Market evidence</div>
 <h2>What nearby homes <em>actually sold for.</em></h2>
@@ -275,7 +305,7 @@ footer .wm{font:500 22px var(--disp);letter-spacing:.34em;color:var(--ink);text-
 <div><b>01</b><h3>Before an offer is binding</h3><p>Confirm measured area. Inspect the foundation, basement moisture, electrical, plumbing, roof and the septic system. Get local agent feedback on resale range.</p></div>
 <div><b>02</b><h3>Before renovation spending</h3><p>Written quotes for the porch, courtyard, kitchen, bath, half bath and flooring. Check permits and any Village of Milford rules for the porch addition. Lock a scope that fits the budget.</p></div>
 <div><b>03</b><h3>First year</h3><p>Essential repairs first, then the half bath, kitchen, bath, flooring and finishes, with the porch and courtyard last. Keep permits, receipts and before/after records.</p></div>
-<div><b>04</b><h3>At resale</h3><p>Refresh comps, recalculate selling costs, then set the list price.</p></div></div>
+<div><b>04</b><h3>Around year five</h3><p>After living there about five years, refresh comps, confirm the 2-of-5-year tax rule with a tax professional, recalculate selling costs, then set the list price.</p></div></div>
 <div class="eyebrow" style="margin-top:80px">Verify before committing</div>
 <div class="vf"><ul><li><b>Age of the house:</b> built in 1901. Check for knob-and-tube wiring, lead paint, and foundation and basement moisture before committing to the budget.</li>
 <li><b>Septic:</b> the listing shows a septic sewer. Get a septic inspection, and confirm the system can take a second bathroom.</li>
@@ -337,11 +367,25 @@ pp.style.left=X(p);pp.querySelector("b").textContent=K(p);pt.style.left=X(v);pt.
 let w;if(v>490000)w="above every comp listed";else if(v>430000)w="between the Liberty ($430K) and Houghton ($490K) sales";else if(v>405000)w="between the Commerce ($405K) and Liberty ($430K) sales";else if(v>350000)w="between the Hickory ($350K) and Commerce ($405K) sales";else w="at or below the Hickory ($350K) sale";
 let q=psf>288?" That is above the top of the comp set ($224–$288/sq ft), so it leans on finish quality, the half bath and a verified size.":psf>=250?" That is in the upper part of the comp set, near the fully updated Houghton sale ($288/sq ft).":psf>=224?" That sits inside the comp set ($224–$288/sq ft), near the Commerce and Liberty sales.":" That is below every comp on a per-foot basis.";
 $("vd").textContent="A target of "+f$(v)+" is $"+Math.round(psf)+"/sq ft on the listed 1,529 sq ft, "+w+"."+q;
-document.querySelectorAll("#pre button[data-p]").forEach(b=>b.classList.toggle("on",+b.dataset.p===v))}
+document.querySelectorAll("#pre button[data-p]").forEach(b=>b.classList.toggle("on",+b.dataset.p===v));if(typeof hold==="function")hold()}
 ["p","r","v","s"].forEach(i=>$(i).addEventListener("input",calc));
 document.querySelectorAll("#pre button[data-p]").forEach(b=>b.onclick=()=>{$("v").value=b.dataset.p;calc()});
 $("rs").onclick=()=>{$("p").value=290000;$("r").value=85000;$("v").value=425000;$("s").value=7;calc()};
 calc();
+
+/* live-in hold */
+function hold(){const p=+$("p").value,r=+$("r").value,v=+$("v").value,s=+$("s").value,y=+$("hy").value,g=+$("hg").value,ci=p+r+6000;
+["hy","hg"].forEach(i=>{const e=$(i);e.style.setProperty("--pct",((e.value-e.min)/(e.max-e.min)*100)+"%")});
+$("hyv").textContent=y+(y===1?" year":" years");$("hgv").textContent=g.toFixed(1)+"% / yr";
+const fv=v*Math.pow(1+g/100,y),now=v-v*s/100-ci,pr=fv-fv*s/100-ci;
+$("hfv").textContent=f$(fv);$("hap").textContent="+"+f$(fv-v).replace("$","$");$("hnow").textContent=f$(now);$("hpr").textContent=f$(pr);$("hdif").textContent=(pr-now>=0?"+":"")+f$(pr-now);
+$("hpr").style.color=pr<0?"var(--bad)":"var(--good)";$("hnow").style.color=now<0?"var(--bad)":"";
+const vals=[];for(let i=0;i<=y;i++)vals.push(v*Math.pow(1+g/100,i));const mx=Math.max(...vals),mn=v*0.85;
+$("yrs").innerHTML=vals.map((x,i)=>'<div class="'+(i===0?"now":"")+'"><b>'+K(x)+'</b><i style="height:'+(18+(x-mn)/(mx-mn||1)*70)+'%"></i><span>'+(i===0?"Done":"Yr "+i)+'</span></div>').join("");
+document.querySelectorAll("#gpre button").forEach(b=>b.classList.toggle("on",+b.dataset.g===g))}
+["hy","hg"].forEach(i=>$(i).addEventListener("input",hold));
+document.querySelectorAll("#gpre button").forEach(b=>b.onclick=()=>{$("hg").value=b.dataset.g;hold()});
+hold();
 
 /* map */
 (function(){
