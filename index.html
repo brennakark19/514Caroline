@@ -210,6 +210,25 @@ section,.mf,.nr,.deal,.mk,.mp,.pf,.li,.bp,.ph,.pm,.fn,.ab{padding-top:24px!impor
 .bt{position:static}.cg{grid-template-columns:repeat(3,1fr)!important}.dg,.bpg,.mg,.abg{grid-template-columns:1fr 1fr!important}
 a{text-decoration:none}footer{margin-top:20px}
 }
+
+/* final costs */
+.fc{padding:clamp(80px,10vw,140px) 0 30px;background:linear-gradient(180deg,var(--bg),#101511 15%,#101511 85%,var(--bg))}
+.fc h2{font:300 clamp(40px,6vw,84px)/1 var(--disp);margin:16px 0 14px}.fc h2 em{color:var(--brass2)}.fc .lead{color:var(--mut);max-width:640px;font-size:17px;margin:0}
+.fch{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:36px}
+.fch div{background:var(--panel);padding:22px}.fch span{font:600 10px var(--ui);letter-spacing:.18em;text-transform:uppercase;color:var(--mut)}.fch b{display:block;font:300 clamp(30px,3.4vw,44px)/1.1 var(--disp);margin-top:8px}
+.fch div.hi b{color:var(--good)}@media(max-width:860px){.fch{grid-template-columns:1fr 1fr}}
+.fcg{display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(18px,3vw,40px);margin-top:28px;align-items:start}@media(max-width:900px){.fcg{grid-template-columns:1fr}}
+.ft{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:14.5px}
+.ft th{text-align:left;font:600 10.5px var(--ui);letter-spacing:.2em;text-transform:uppercase;color:var(--brass);padding:18px 20px 8px;background:var(--panel)}
+.ft td{padding:11px 20px;border-top:1px solid var(--line)}.ft td:last-child{text-align:right;font:400 20px var(--disp);white-space:nowrap}
+.ft td small{display:block;color:var(--mut);font-size:12px}
+.ft .tg2{display:inline-block;margin-left:8px;font:700 9px var(--ui);letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border-radius:99px;vertical-align:middle}
+.ft .q{background:rgba(143,208,162,.15);color:var(--good)}.ft .e{background:rgba(239,233,220,.08);color:var(--mut)}
+.ft tr.sub td{font-weight:700;background:rgba(201,164,108,.06)}.ft tr.sub td:last-child{color:var(--brass2);font-size:22px}
+.ft tr.grand td{font-weight:700;background:rgba(201,164,108,.14);font-size:15.5px}.ft tr.grand td:last-child{font-size:28px;color:var(--ink)}
+.fs .pnl{margin-bottom:18px}.fs .big3{font:300 clamp(44px,5.5vw,66px)/1 var(--disp);margin:8px 0 6px}
+.fs .rowk{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:var(--mut)}.fs .rowk:last-child{border:0}.fs .rowk b{font:400 19px var(--disp);color:var(--ink)}
+@media print{.fc{background:#fff!important}.fch,.ft{break-inside:avoid}.fcg{grid-template-columns:1fr!important}.ft .q,.ft .e{border:1px solid #bbb}}
 /* market */
 .mk{padding:clamp(70px,9vw,130px) 0 20px}
 .cg{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:40px}
@@ -277,7 +296,7 @@ footer .wm{font:500 22px var(--disp);letter-spacing:.34em;color:var(--ink);text-
 @media(prefers-reduced-motion:reduce){#hero .hi{animation:none}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
 </style></head><body>
 
-<nav id="nav"><a class="wm" href="#top">Caroline</a><a class="l" href="#vision">The vision</a><a class="l" href="#rooms">Room by room</a><a class="l" href="#exterior">Exterior</a><a class="l" href="#numbers">Numbers</a><a class="l" href="#live-in">Live-in plan</a><a class="l" href="#market">Market</a><a class="l" href="#map-sec">Location</a><a class="cta" href="#numbers">Run the numbers</a><a class="pdf" id="pdfb" href="#" title="Save this page as a PDF">Save PDF</a></nav>
+<nav id="nav"><a class="wm" href="#top">Caroline</a><a class="l" href="#vision">The vision</a><a class="l" href="#rooms">Room by room</a><a class="l" href="#exterior">Exterior</a><a class="l" href="#numbers">Numbers</a><a class="l" href="#live-in">Live-in plan</a><a class="l" href="#final">Final costs</a><a class="l" href="#market">Market</a><a class="l" href="#map-sec">Location</a><a class="cta" href="#numbers">Run the numbers</a><a class="pdf" id="pdfb" href="#" title="Save this page as a PDF">Save PDF</a></nav>
 <nav id="rail" aria-label="Rooms"></nav>
 
 <header id="hero"><div id="top"></div>
@@ -361,6 +380,8 @@ footer .wm{font:500 22px var(--disp);letter-spacing:.34em;color:var(--ink);text-
 </div></section>
 
 <section class="pm" id="payment"><div class="wrap"><div class="eyebrow">Living there · the monthly cost</div><h2>What it costs <em>to live there.</em></h2><p class="lead">The monthly payment on the purchase price you set above. Renovation is paid separately in phases and is not financed here.</p><div class="dg"><div class="pnl"><span class="eyebrow">Loan assumptions</span><div class="fld"><div class="t">Down payment <b id="mdv"></b></div><input id="md" type="range" min="3" max="25" step="1" value="10"></div><div class="fld"><div class="t">Interest rate (30-year fixed) <b id="mrv"></b></div><input id="mr" type="range" min="5" max="8.5" step="0.05" value="7.2"></div><div class="fld"><div class="t">Property taxes per year <b id="mtv"></b></div><input id="mt" type="range" min="3000" max="10000" step="100" value="6000"></div><div class="fld"><div class="t">Home insurance per year <b id="miv"></b></div><input id="mi" type="range" min="800" max="4000" step="50" value="1800"></div><p class="fine">Rate starts near Freddie Mac’s 30-year average of 7.18% for the week of November 5, 2026. The listing shows $5,097 a year in taxes, but Michigan resets taxable value after a sale, so expect more; confirm with the Village of Milford. Insurance and mortgage insurance are estimates.</p></div><div class="pnl"><span class="eyebrow">Monthly payment</span><div class="pmo" id="mtot"></div><div class="kpis"><div><span>Principal &amp; interest</span><b id="mpi"></b></div><div><span>Taxes</span><b id="mtx"></b></div><div><span>Insurance</span><b id="mins"></b></div><div><span>Mortgage insurance</span><b id="mpm"></b></div></div><div class="kpis"><div><span>Down payment</span><b id="mdp"></b></div><div><span>Loan amount</span><b id="mla"></b></div></div><div class="stk" id="mstk"></div></div></div></div></section>
+
+<section class="fc" id="final"><div class="wrap"><div class="eyebrow">The final numbers · everything in one place</div><h2>Every cost. <em>One page.</em></h2><p class="lead">The full picture from purchase to sale: what the house costs, what every project costs, what you need in cash, and what comes back at the end. It updates with every slider on this page.</p><div class="fch"><div><span>All-in cost</span><b id="f_all"></b></div><div><span>Cash you’ll need</span><b id="f_cash"></b></div><div class="hi"><span>Profit if sold when done</span><b id="f_p1"></b></div><div class="hi"><span id="f_p2l">Profit at move-out</span><b id="f_p2"></b></div></div><div class="fcg"><table class="ft" id="ftab"></table><div class="fs"><div class="pnl"><span class="eyebrow">The sale</span><div class="rowk"><span>Target sale price (finished)</span><b id="f_v"></b></div><div class="rowk"><span id="f_scl">Selling costs</span><b id="f_sc"></b></div><div class="rowk"><span>Net from the sale</span><b id="f_net"></b></div><div class="rowk"><span>Minus all-in cost</span><b id="f_all2"></b></div><div class="rowk"><span>Profit if sold when done</span><b id="f_p1b"></b></div></div><div class="pnl"><span class="eyebrow">The live-in hold</span><div class="rowk"><span id="f_hl">Value at move-out</span><b id="f_fv"></b></div><div class="rowk"><span>Selling costs then</span><b id="f_sc2"></b></div><div class="rowk"><span>Profit at move-out</span><b id="f_p2b"></b></div><div class="rowk"><span>Monthly payment while living there</span><b id="f_mo"></b></div></div><div class="pnl"><span class="eyebrow">Cash you’ll need</span><div class="rowk"><span>Down payment</span><b id="f_dp"></b></div><div class="rowk"><span>Buying costs</span><b>$6,000</b></div><div class="rowk"><span>Renovation, paid over five years</span><b id="f_rn"></b></div><div class="rowk"><span>Total cash</span><b id="f_cash2"></b></div><p class="fine">Assumes the renovation is paid in cash as each phase happens. The mortgage covers the rest of the purchase price.</p></div></div></div><p class="small">Green tags are real contractor quotes; grey tags are planning estimates. Profit is before mortgage interest, taxes and insurance while you live there (you would pay for housing either way), and before the value of your own labor.</p></div></section>
 
 <section class="mk" id="market"><div class="wrap">
 <div class="eyebrow">Market evidence</div>
@@ -467,7 +488,7 @@ pp.style.left=X(p);pp.querySelector("b").textContent=K(p);pt.style.left=X(v);pt.
 let w;if(v>595000)w="above every comp listed";else if(v>490000)w="between the Houghton ($490K) and Atlantic ($595K) sales";else if(v>430000)w="between the Liberty ($430K) and Houghton ($490K) sales";else if(v>405000)w="between the Commerce ($405K) and Liberty ($430K) sales";else if(v>350000)w="between the Hickory ($350K) and Commerce ($405K) sales";else w="at or below the Hickory ($350K) sale";
 let q=psf>288?" That is above the top of the comp set ($224–$288/sq ft), so it leans on finish quality, the half bath and a verified size.":psf>=250?" That is in the upper part of the comp set, near the fully updated Houghton sale ($288/sq ft).":psf>=224?" That sits inside the comp set ($224–$288/sq ft), near the Commerce and Liberty sales.":" That is below every comp on a per-foot basis.";
 $("vd").textContent="A target of "+f$(v)+" is $"+Math.round(psf)+"/sq ft on the listed 1,529 sq ft, "+w+"."+q;
-document.querySelectorAll("#pre button[data-p]").forEach(b=>b.classList.toggle("on",+b.dataset.p===v));if(typeof hold==="function")hold()}
+document.querySelectorAll("#pre button[data-p]").forEach(b=>b.classList.toggle("on",+b.dataset.p===v));if(typeof hold==="function")hold();if(window.__fr)fin()}
 ["p","r","v","s"].forEach(i=>$(i).addEventListener("input",calc));
 document.querySelectorAll("#pre button[data-p]").forEach(b=>b.onclick=()=>{$("v").value=b.dataset.p;calc()});
 $("rs").onclick=()=>{$("p").value=290000;$("r").value=85000;$("v").value=425000;$("s").value=7;calc()};
@@ -520,7 +541,23 @@ $("mtot").innerHTML=f$(tot)+"<small>/ month</small>";$("mpi").textContent=f$(pi)
 const sg=[[pi,"#6f8a76","Principal & interest"],[tx,"#c9a46c","Taxes"],[iv,"#e2c898","Insurance"],[pm,"#5b6660","Mortgage insurance"]];
 $("mstk").innerHTML=sg.filter(x=>x[0]>0).map(x=>'<i title="'+x[2]+'" style="width:'+(x[0]/tot*100)+'%;background:'+x[1]+'"></i>').join("")}
 ["md","mr","mt","mi","p"].forEach(i=>$(i).addEventListener("input",pay));
-bud();pay();
+
+/* final costs */
+function fin(){if(!$("ftab"))return;const p=+$("p").value,v=+$("v").value,s=+$("s").value,y=+$("hy").value,g=+$("hg").value,d=+$("md").value,ra=+$("mr").value,t=+$("mt").value,ins=+$("mi").value;
+let rn=0;const rows=BI.map(b=>{const x=+$("b_"+b[0]).value;rn+=x;const q=/quote/i.test(b[2]);return '<tr><td>'+b[1]+'<span class="tg2 '+(q?'q':'e')+'">'+(q?'Quote':'Estimate')+'</span><small>'+(b[7]?'Year '+b[7]:'Held in reserve')+' · '+b[2]+'</small></td><td>'+f$(x)+'</td></tr>'}).join("");
+const all=p+6000+rn,sc=v*s/100,net=v-sc,p1=net-all,fv=v*Math.pow(1+g/100,y),sc2=fv*s/100,p2=fv-sc2-all,dp=p*d/100,cash=dp+6000+rn;
+const L=p-dp,i=ra/1200,pi=L*i/(1-Math.pow(1+i,-360)),mo=pi+(d<20?L*0.005/12:0)+t/12+ins/12;
+$("ftab").innerHTML='<tr><th colspan="2">Buying the house</th></tr><tr><td>Purchase price</td><td>'+f$(p)+'</td></tr><tr><td>Buying costs<small>Closing, inspection, title</small></td><td>$6,000</td></tr><tr class="sub"><td>House subtotal</td><td>'+f$(p+6000)+'</td></tr>'+
+'<tr><th colspan="2">Renovation · ten projects</th></tr>'+rows+'<tr class="sub"><td>Renovation subtotal</td><td>'+f$(rn)+'</td></tr>'+
+'<tr class="grand"><td>All-in cost</td><td>'+f$(all)+'</td></tr>';
+const col=x=>x<0?"var(--bad)":"var(--good)";
+$("f_all").textContent=f$(all);$("f_cash").textContent=f$(cash);$("f_p1").textContent=f$(p1);$("f_p1").style.color=col(p1);$("f_p2").textContent=f$(p2);$("f_p2").style.color=col(p2);
+$("f_p2l").textContent="Profit after "+y+(y===1?" year":" years");$("f_v").textContent=f$(v);$("f_scl").textContent="Selling costs ("+s.toFixed(1)+"%)";$("f_sc").textContent="−"+f$(sc);$("f_net").textContent=f$(net);$("f_all2").textContent="−"+f$(all);$("f_p1b").textContent=f$(p1);$("f_p1b").style.color=col(p1);
+$("f_hl").textContent="Value after "+y+(y===1?" year":" years")+" at "+g.toFixed(1)+"%";$("f_fv").textContent=f$(fv);$("f_sc2").textContent="−"+f$(sc2);$("f_p2b").textContent=f$(p2);$("f_p2b").style.color=col(p2);$("f_mo").textContent=f$(mo);
+$("f_dp").textContent=f$(dp);$("f_rn").textContent=f$(rn);$("f_cash2").textContent=f$(cash)}
+["hy","hg","md","mr","mt","mi"].forEach(i=>$(i).addEventListener("input",fin));
+document.querySelectorAll("#gpre button").forEach(b=>b.addEventListener("click",fin));
+bud();pay();window.__fr=1;fin();
 
 /* live-in hold */
 function hold(){const p=+$("p").value,r=+$("r").value,v=+$("v").value,s=+$("s").value,y=+$("hy").value,g=+$("hg").value,ci=p+r+6000;
