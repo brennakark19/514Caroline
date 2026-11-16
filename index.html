@@ -336,7 +336,7 @@ footer .wm{font:500 22px var(--disp);letter-spacing:.34em;color:var(--ink);text-
 <div class="stk" id="stk"></div><div class="lg" id="lg"></div></div>
 </div></div></section>
 
-<section class="bp" id="budget"><div class="wrap"><div class="eyebrow">Budget by project · where the money goes</div><h2>One budget. <em>Ten projects.</em></h2><p class="lead">Each project has its own allowance. Move any slider and the renovation budget, the profit above and the five-year plan below all update. Start from a lean, do-it-ourselves budget or a contractor-built one.</p><div class="bpg"><div class="pnl"><div class="pre" id="bpre"><button data-s="lean">Lean · we do a lot ourselves</button><button data-s="pro">Contractor · midrange</button></div><div id="bitems"></div></div><div class="pnl bt"><span class="eyebrow">Renovation total</span><div class="tot" id="btot"></div><div id="bcmp" style="color:var(--mut);font-size:13.5px"></div><div class="bars" id="bbars"></div><p class="fine">Allowances are planning figures, not quotes. The contractor preset leans on published 2026 cost ranges (minor midrange kitchen remodel about $28K in the Detroit area; half bath $5K–$15K; basement finishing $25–$50 per sq ft in Detroit; covered front porch $12K–$35K). Get real quotes before relying on any of them.</p></div></div></div></section>
+<section class="bp" id="budget"><div class="wrap"><div class="eyebrow">Budget by project · where the money goes</div><h2>One budget. <em>Ten projects.</em></h2><p class="lead">Each project has its own allowance. Move any slider and the renovation budget, the profit above and the five-year plan below all update. Start from a lean, do-it-ourselves budget or a contractor-built one.</p><div class="bpg"><div class="pnl"><div class="pre" id="bpre"><button data-s="lean">Lean · we do a lot ourselves</button><button data-s="pro">Contractor · midrange</button></div><div id="bitems"></div></div><div class="pnl bt"><span class="eyebrow">Renovation total</span><div class="tot" id="btot"></div><div id="bcmp" style="color:var(--mut);font-size:13.5px"></div><div class="bars" id="bbars"></div><p class="fine">The main bath, half bath and front porch use real contractor quotes: the low end in Lean, the high end in Contractor. Everything else is still a planning allowance; the contractor preset leans on published 2026 cost ranges (minor midrange kitchen remodel about $28K in the Detroit area; basement finishing $25–$50 per sq ft in Detroit). Swap them out as more quotes come in.</p></div></div></div></section>
 
 <section class="ph" id="phases"><div class="wrap"><div class="eyebrow">The five-year plan · one phase a year</div><h2>Live in it. <em>Finish it in phases.</em></h2><p class="lead">Because you live there, the work does not have to happen at once. Essentials first, the big rooms next, and the showpieces right before you sell. Costs come from the budget above.</p><div class="pg" id="pgrid"></div></div></section>
 
@@ -488,13 +488,13 @@ addEventListener("beforeprint",()=>{$("h0").src="porch_after.jpg"});
 ["pdfb","pdfb2"].forEach(id=>{const b=$(id);b&&b.addEventListener("click",ev=>{ev.preventDefault();document.querySelectorAll("img[loading=lazy]").forEach(i=>i.loading="eager");setTimeout(()=>window.print(),400)})});
 /* budget by project */
 const BI=[["kitchen","Kitchen + dining","Cabinets, island, counters, lighting",10000,60000,20000,32000,2,"Kitchen"],
-["bath","Main bath + walk-in shower","Same fixture locations",5000,30000,9000,18000,1,"Main bath"],
-["half","Half bath off the laundry","New plumbing, fixtures, permit",3000,20000,6000,10000,1,"Half bath"],
+["bath","Main bath + walk-in shower","Contractor quote $8K–$10K",5000,30000,8000,10000,1,"Main bath"],
+["half","Half bath off the laundry","Contractor quote $10K–$12K",3000,20000,10000,12000,1,"Half bath"],
 ["laundry","Laundry + mudroom built-ins","Bench, cubbies, cabinets",1000,12000,3000,6000,3,"Laundry"],
 ["floor","Flooring throughout","Wood-look plank, stairs",2000,15000,5000,8000,1,"Flooring"],
 ["paint","Paint, lighting + office","Walls, fixtures, finishes",1000,15000,4000,6000,1,"Paint + light"],
 ["base","Finished basement","~359 sq ft playroom + movie space",4000,25000,9000,14000,3,"Basement"],
-["porch","Covered front porch","Posts, roof, stone base, lighting",8000,40000,14000,22000,4,"Porch"],
+["porch","Covered front porch","Contractor quote $25K",8000,40000,25000,25000,4,"Porch"],
 ["court","Side courtyard","Pavers, grill island, string lights",3000,35000,9000,15000,5,"Courtyard"],
 ["cont","Contingency","Surprises in a 1901 house",0,20000,6000,8000,0,"Contingency"]];
 const bit=$("bitems");BI.forEach(b=>{const d=document.createElement("div");d.className="bi";d.innerHTML='<div class="n">'+b[1]+'<small>'+b[2]+'</small></div><b id="bv_'+b[0]+'"></b><input id="b_'+b[0]+'" type="range" min="'+b[3]+'" max="'+b[4]+'" step="500" value="'+b[5]+'">';bit.appendChild(d)});
