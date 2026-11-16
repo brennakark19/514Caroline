@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>514 Caroline — Renovation Proposal</title>
+<meta name="description" content="A before-and-after renovation proposal for 514 Caroline, Milford, Michigan.">
+<meta name="theme-color" content="#0d100e">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<style>
+:root{--bg:#0d100e;--bg2:#121713;--panel:#171d19;--ink:#efe9dc;--mut:#98a294;--line:rgba(239,233,220,.13);--brass:#c9a46c;--brass2:#e2c898;--moss:#3f5a47;--good:#8fd0a2;--bad:#ec9580;
+--disp:"Cormorant Garamond",Georgia,"Times New Roman",serif;--ui:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--ui);overflow-x:hidden}
+a{color:inherit}img{display:block}
+.eyebrow{font:600 11.5px/1 var(--ui);letter-spacing:.28em;text-transform:uppercase;color:var(--brass)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(18px,4vw,40px)}
+h1,h2,h3{font-family:var(--disp);font-weight:400;margin:0}
+/* nav */
+#nav{position:fixed;inset:0 0 auto 0;z-index:100;display:flex;align-items:center;gap:6px;padding:14px clamp(16px,3vw,34px);padding-top:calc(14px + env(safe-area-inset-top,0px));transition:background .35s,border-color .35s;border-bottom:1px solid transparent}
+#nav.on{background:rgba(13,16,14,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-color:var(--line)}
+#nav .wm{font:500 20px var(--disp);letter-spacing:.34em;text-transform:uppercase;margin-right:auto;text-decoration:none}
+#nav a.l{font:600 12.5px var(--ui);letter-spacing:.06em;text-decoration:none;padding:9px 12px;border-radius:99px;color:var(--ink);opacity:.82;white-space:nowrap}
+#nav a.l:hover{opacity:1;background:rgba(239,233,220,.08)}
+#nav a.cta{font:700 12px var(--ui);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:#14110b;background:var(--brass);padding:10px 16px;border-radius:99px;margin-left:6px;white-space:nowrap}
+@media(max-width:880px){#nav a.l{display:none}#nav .wm{font-size:16px}}
+/* hero */
+#hero{position:relative;height:100vh;height:100svh;min-height:600px;overflow:hidden;display:flex;align-items:flex-end}
+#hero .hi{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease;transform:scale(1.04);animation:drift 26s ease-in-out infinite alternate}
+#hero .hi.on{opacity:1}
+@keyframes drift{to{transform:scale(1.1) translate(-1.2%,.6%)}}
+#hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,16,14,.55) 0%,rgba(13,16,14,.05) 28%,rgba(13,16,14,.35) 58%,rgba(13,16,14,.96) 100%)}
+.hc{position:relative;z-index:2;width:100%;padding-bottom:clamp(110px,16vh,170px)}
+#hero h1{font-size:clamp(48px,9.2vw,138px);line-height:.94;font-weight:300;letter-spacing:-.02em}
+#hero h1 em{display:block;font-style:italic;font-weight:400;color:var(--brass2);font-size:.5em;letter-spacing:0;margin-top:.1em}
+#hero p.sub{max-width:520px;font-size:clamp(15px,1.7vw,18px);color:rgba(239,233,220,.86);margin:22px 0 0}
+.tag{position:absolute;z-index:3;top:calc(86px + env(safe-area-inset-top,0px));right:clamp(16px,3vw,34px);font:700 11px var(--ui);letter-spacing:.22em;text-transform:uppercase;padding:9px 14px;border:1px solid rgba(239,233,220,.4);border-radius:99px;backdrop-filter:blur(8px);background:rgba(13,16,14,.4);transition:color .5s}
+.ribbon{position:absolute;z-index:3;left:0;right:0;bottom:0;border-top:1px solid var(--line);background:rgba(13,16,14,.62);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.ribbon .wrap{display:grid;grid-template-columns:repeat(5,1fr);padding-top:16px;padding-bottom:calc(16px + env(safe-area-inset-bottom,0px))}
+.ribbon div{padding:0 10px;border-left:1px solid var(--line)}.ribbon div:first-child{border:0;padding-left:0}
+.ribbon b{display:block;font:500 clamp(18px,2.4vw,28px)/1.1 var(--disp)}.ribbon span{font:600 10px var(--ui);letter-spacing:.18em;text-transform:uppercase;color:var(--mut)}
+@media(max-width:700px){.ribbon .wrap{grid-template-columns:repeat(3,1fr);row-gap:10px}.ribbon div:nth-child(n+4){display:none}
+ #hero .hi{height:62%;top:0;bottom:auto;-webkit-mask-image:linear-gradient(#000 68%,transparent);mask-image:linear-gradient(#000 68%,transparent)}#hero:after{background:linear-gradient(180deg,rgba(13,16,14,.5) 0%,rgba(13,16,14,0) 20%,rgba(13,16,14,0) 40%,rgba(13,16,14,1) 62%)}
+ .hc{padding-bottom:128px}.hc .eyebrow{display:none}#hero h1{margin-top:0!important}.tag{top:auto;bottom:auto;right:14px;top:calc(60px + env(safe-area-inset-top,0px))}}
+.cue{position:absolute;z-index:3;left:50%;bottom:92px;transform:translateX(-50%);width:1px;height:46px;background:linear-gradient(var(--brass),transparent);animation:cue 2s infinite}
+@keyframes cue{0%{transform:translateX(-50%) scaleY(0);transform-origin:top}50%{transform:translateX(-50%) scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:translateX(-50%) scaleY(0);transform-origin:bottom}}
+@media(max-width:700px){.cue{display:none}}
+/* manifesto */
+.mf{padding:clamp(90px,14vw,190px) 0 clamp(60px,8vw,110px)}
+.mf .big{font:300 clamp(34px,6.4vw,92px)/1.04 var(--disp);letter-spacing:-.015em;margin-top:26px;max-width:1050px}
+.mf .big .w{opacity:.16;transition:opacity .4s}.mf .big .w.on{opacity:1}
+.mf .big em{color:var(--brass2)}
+.scope{margin-top:clamp(50px,7vw,90px);border-top:1px solid var(--line)}
+.scope .row{display:grid;grid-template-columns:90px 1fr 1.4fr;gap:20px;align-items:baseline;padding:26px 6px;border-bottom:1px solid var(--line);transition:background .3s,padding .3s}
+.scope .row:hover{background:rgba(201,164,108,.06);padding-left:16px}
+.scope .n{font:300 40px/1 var(--disp);color:var(--brass)}.scope h3{font:500 clamp(24px,2.6vw,34px)}.scope p{margin:0;color:var(--mut);font-size:15px}
+@media(max-width:760px){.scope .row{grid-template-columns:54px 1fr;row-gap:6px}.scope .row p{grid-column:2}.scope .n{font-size:30px}}
+/* chapters */
+.rooms-h{padding:clamp(60px,8vw,110px) 0 30px}
+.rooms-h h2{font:300 clamp(40px,6vw,84px)/1 var(--disp);margin:16px 0 14px}.rooms-h h2 em{color:var(--brass2)}
+.rooms-h p{color:var(--mut);max-width:560px;font-size:17px;margin:0}
+.chap{position:relative;height:190vh}
+.chap .st{position:sticky;top:0;height:100vh;height:100svh;display:grid;grid-template-columns:minmax(260px,.75fr) 1.7fr;align-items:center;gap:clamp(20px,4vw,70px);padding:calc(76px + env(safe-area-inset-top,0px)) clamp(18px,5vw,70px) 36px;overflow:hidden}
+.chap .bgb{position:absolute;inset:-12%;background-size:cover;background-position:center;filter:blur(60px) saturate(1.25) brightness(.7);opacity:.34;z-index:0}
+.chap .txt{position:relative;z-index:2}
+.chap .num{font:300 clamp(90px,13vw,210px)/.78 var(--disp);color:transparent;-webkit-text-stroke:1px rgba(201,164,108,.6);letter-spacing:-.03em;margin-bottom:12px}
+.chap .num small{font:600 11px var(--ui);letter-spacing:.22em;color:var(--mut);-webkit-text-stroke:0;margin-left:10px;vertical-align:top}
+.chap h3{font:400 clamp(34px,4.2vw,62px)/1.02;letter-spacing:-.01em}
+.chap .zn{font:600 11px var(--ui);letter-spacing:.2em;text-transform:uppercase;color:var(--brass);margin-bottom:12px}
+.chap .cp{color:rgba(239,233,220,.78);margin:16px 0 22px;max-width:380px;font-size:15.5px}
+.chap .chips{display:flex;gap:8px}.chip{font:700 10.5px var(--ui);letter-spacing:.18em;text-transform:uppercase;padding:8px 13px;border-radius:99px;border:1px solid var(--line);color:var(--mut);transition:all .35s}
+.chip.on{background:var(--brass);border-color:var(--brass);color:#16120a}
+.frame{position:relative;z-index:2;justify-self:center;width:min(100%,calc((100svh - 150px)*var(--r)));aspect-ratio:var(--r);border-radius:8px;overflow:hidden;box-shadow:0 50px 120px rgba(0,0,0,.65),0 0 0 1px rgba(239,233,220,.08);background:#000}
+.frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.frame .a{clip-path:inset(0 calc(100% - var(--w,0%)) 0 0)}.frame .a.one{clip-path:none}
+.frame .ln{position:absolute;top:0;bottom:0;left:var(--w,0%);width:2px;margin-left:-1px;background:#fff;box-shadow:0 0 22px rgba(255,255,255,.8);opacity:0}
+.frame .tg{position:absolute;bottom:12px;font:700 10px var(--ui);letter-spacing:.2em;text-transform:uppercase;background:rgba(10,13,11,.66);padding:6px 10px;border-radius:99px}
+.frame .tg.l{left:12px}.frame .tg.r{right:12px}
+.pr{position:absolute;left:clamp(18px,5vw,70px);right:clamp(18px,5vw,70px);bottom:24px;height:2px;background:var(--line);z-index:2}.pr i{display:block;height:100%;width:0;background:var(--brass)}
+@media(max-width:860px){.chap{height:175vh}.chap .st{grid-template-columns:1fr;grid-template-rows:auto auto;align-content:center;gap:16px;padding-top:calc(64px + env(safe-area-inset-top,0px))}
+ .frame{order:-1;width:min(100%,calc((100svh - 300px)*var(--r)))}.chap .num{font-size:64px;display:inline-block;margin:0 10px 0 0;vertical-align:middle}.chap .num small{display:none}
+ .chap h3{font-size:30px;display:inline-block;vertical-align:middle;max-width:calc(100% - 90px)}.chap .zn{display:none}.chap .cp{margin:10px 0 12px;font-size:14px;max-width:none}}
+#rail{position:fixed;right:clamp(10px,1.6vw,24px);top:50%;transform:translateY(-50%);z-index:60;display:flex;flex-direction:column;gap:9px;opacity:0;pointer-events:none;transition:opacity .4s}
+#rail.on{opacity:1;pointer-events:auto}
+#rail a{position:relative;width:9px;height:9px;border-radius:50%;background:rgba(239,233,220,.3);transition:all .25s;display:block}
+#rail a.cur{background:var(--brass);transform:scale(1.5)}
+#rail a span{position:absolute;right:20px;top:50%;transform:translateY(-50%);white-space:nowrap;font:600 11px var(--ui);letter-spacing:.06em;background:rgba(13,16,14,.9);padding:5px 10px;border-radius:99px;opacity:0;pointer-events:none;transition:opacity .2s}
+#rail a:hover span{opacity:1}
+@media(max-width:860px){#rail{display:none}}
+/* new rooms */
+.nr{padding:clamp(80px,10vw,140px) 0 20px;background:linear-gradient(180deg,var(--bg),var(--bg2) 20%,var(--bg2) 80%,var(--bg))}
+.nr h2{font:300 clamp(38px,5.4vw,76px)/1 var(--disp);margin:16px 0 14px}.nr h2 em{color:var(--brass2)}
+.nr .lead{color:var(--mut);max-width:620px;font-size:17px;margin:0}
+.ng{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(16px,2.4vw,30px);margin-top:44px}
+.nc{position:relative;background:var(--panel);border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+.nc .ph{position:relative;cursor:zoom-in;overflow:hidden;aspect-ratio:var(--r)}
+.nc .ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s}.nc:hover .ph img{transform:scale(1.025)}
+.nc .ph:after{content:"Concept render coming";position:absolute;top:12px;left:12px;font:700 10px var(--ui);letter-spacing:.18em;text-transform:uppercase;color:#16120a;background:var(--brass);padding:6px 11px;border-radius:99px}
+.nc .meta{padding:18px 22px 22px}.nc h3{font:500 28px/1.1 var(--disp);margin-bottom:6px}.nc p{margin:0;color:var(--mut);font-size:14.5px}
+@media(max-width:760px){.ng{grid-template-columns:1fr}}
+/* deal */
+.deal{padding:clamp(90px,12vw,170px) 0 40px}
+.deal h2,.mk h2,.pf h2{font:300 clamp(40px,6vw,84px)/1 var(--disp);margin:16px 0 14px}.deal h2 em,.mk h2 em,.pf h2 em{color:var(--brass2)}
+.deal .lead,.mk .lead{color:var(--mut);max-width:620px;font-size:17px;margin:0}
+.note{border:1px solid rgba(201,164,108,.35);background:rgba(201,164,108,.07);border-radius:10px;padding:14px 18px;margin:26px 0 0;font-size:14px;color:var(--brass2)}
+.dg{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(18px,3vw,40px);margin-top:30px}
+@media(max-width:900px){.dg{grid-template-columns:1fr}}
+.pnl{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:clamp(20px,3vw,34px)}
+.pnl .eyebrow{display:block;margin-bottom:18px}
+.pre{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.pre button{font:600 12.5px var(--ui);letter-spacing:.03em;color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:99px;padding:10px 15px;cursor:pointer;touch-action:manipulation;transition:all .2s}
+.pre button:hover{border-color:var(--brass)}.pre button.on{background:var(--brass);color:#16120a;border-color:var(--brass)}
+.fld{margin-top:26px}.fld .t{display:flex;justify-content:space-between;align-items:baseline;font:600 11px var(--ui);letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+.fld .t b{font:500 28px var(--disp);letter-spacing:0;text-transform:none;color:var(--ink)}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:34px;background:transparent;margin:4px 0 0;--pct:50%;touch-action:pan-y}
+input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:4px;background:linear-gradient(90deg,var(--brass) var(--pct),rgba(239,233,220,.16) var(--pct))}
+input[type=range]::-moz-range-track{height:4px;border-radius:4px;background:rgba(239,233,220,.16)}input[type=range]::-moz-range-progress{height:4px;background:var(--brass);border-radius:4px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:var(--brass2);border:4px solid var(--bg);box-shadow:0 0 0 1px var(--brass),0 4px 14px rgba(0,0,0,.5);margin-top:-11px;cursor:grab}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--brass2);border:4px solid var(--bg);box-shadow:0 0 0 1px var(--brass);cursor:grab}
+.fine{font-size:12.5px;color:var(--mut);margin:20px 0 0}
+.gw{display:grid;grid-template-columns:200px 1fr;gap:22px;align-items:center}
+@media(max-width:520px){.gw{grid-template-columns:1fr;justify-items:center;text-align:center}}
+.ring{position:relative;width:200px;height:200px}.ring svg{transform:rotate(-90deg);width:100%;height:100%}
+.ring circle{fill:none;stroke-width:10}.ring .bgc{stroke:rgba(239,233,220,.1)}.ring .fg{stroke:var(--good);stroke-linecap:round;transition:stroke-dashoffset .5s,stroke .3s}
+.ring .mid{position:absolute;inset:0;display:grid;place-content:center;text-align:center}.ring .mid b{font:300 44px/1 var(--disp)}.ring .mid span{font:600 9.5px var(--ui);letter-spacing:.2em;text-transform:uppercase;color:var(--mut);margin-top:6px}
+#m{font:300 clamp(46px,6.5vw,76px)/1 var(--disp);letter-spacing:-.02em}#short{color:var(--bad);font-size:13px;min-height:18px;margin-top:6px}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border-radius:10px;overflow:hidden;margin-top:26px}
+.kpis div{background:var(--panel);padding:16px 18px}.kpis span{font:600 10px var(--ui);letter-spacing:.18em;text-transform:uppercase;color:var(--mut)}.kpis b{display:block;font:400 28px/1.15 var(--disp);margin-top:4px}
+.stk{display:flex;height:40px;border-radius:8px;overflow:hidden;margin-top:26px;background:var(--line);gap:2px}.stk i{display:block;height:100%;transition:width .35s}
+.lg{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:14px;font-size:12px;color:var(--mut)}.lg span:before{content:"";display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:6px;background:var(--c)}
+/* market */
+.mk{padding:clamp(70px,9vw,130px) 0 20px}
+.cg{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:40px}
+@media(max-width:1100px){.cg{grid-template-columns:repeat(3,1fr)}}@media(max-width:820px){.cg{grid-template-columns:repeat(2,1fr)}}@media(max-width:540px){.cg{grid-template-columns:1fr}}
+.cc{position:relative;display:flex;flex-direction:column;text-decoration:none;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px;transition:transform .3s,border-color .3s}
+a.cc:hover{transform:translateY(-4px);border-color:var(--brass)}
+.cc.subj{background:linear-gradient(160deg,#243229,#171d19);border-color:rgba(201,164,108,.45)}
+.cc .k{font:700 10px var(--ui);letter-spacing:.2em;text-transform:uppercase;color:var(--brass)}
+.cc .p{font:300 46px/1 var(--disp);margin:14px 0 4px}.cc .a{font:600 14px var(--ui)}.cc .d{color:var(--mut);font-size:13px;margin:6px 0 0}
+.cc .sf{margin-top:auto;padding-top:16px;font:600 12px var(--ui);letter-spacing:.08em;color:var(--brass2)}
+.cc .m{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}.cc .m span{font:600 11px var(--ui);padding:5px 9px;border:1px solid var(--line);border-radius:99px;color:var(--mut)}
+.axis{position:relative;height:250px;margin:56px 0 0;padding:0 34px}
+.axis .line{position:absolute;left:34px;right:34px;top:50%;height:2px;background:linear-gradient(90deg,var(--line),var(--brass),var(--line))}
+.axis .tick{position:absolute;top:50%;margin-top:8px;font:600 10px var(--ui);color:var(--mut);transform:translateX(-50%);letter-spacing:.1em}
+.pin{position:absolute;transform:translateX(-50%);text-align:center;text-decoration:none;white-space:nowrap;transition:left .3s}
+.pin b{display:block;font:400 25px/1 var(--disp)}.pin span{font:600 10px var(--ui);letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
+.pin:after{content:"";position:absolute;left:50%;width:1px;background:var(--mut);opacity:.5}
+.pin.up{bottom:50%;padding-bottom:var(--h,40px)}.pin.up:after{bottom:0;height:var(--h,40px)}
+.pin.dn{top:50%;padding-top:var(--h,40px)}.pin.dn:after{top:0;height:var(--h,40px)}
+.pin.me b{color:var(--good)}.pin.me:after{background:var(--good);opacity:.8}
+.pin.cmp:hover b{color:var(--brass2)}
+.pin i{position:absolute;left:50%;width:11px;height:11px;margin-left:-5.5px;border-radius:50%;background:var(--ink)}.pin.up i{bottom:-5px}.pin.dn i{top:-5px}.pin.me i{background:var(--good)}.pin.cmp i{background:var(--brass)}
+#vd{font-size:16px;color:rgba(239,233,220,.86);max-width:760px;margin:10px 0 0}
+.small{font-size:13px;color:var(--mut);max-width:820px;margin-top:20px}
+
+/* map */
+.mp{padding:clamp(70px,9vw,130px) 0 20px}
+.mp h2{font:300 clamp(40px,6vw,84px)/1 var(--disp);margin:16px 0 14px}.mp h2 em{color:var(--brass2)}.mp .lead{color:var(--mut);max-width:620px;font-size:17px;margin:0}
+.mg{display:grid;grid-template-columns:1.55fr 1fr;gap:clamp(14px,2vw,26px);margin-top:36px;align-items:stretch}
+@media(max-width:900px){.mg{grid-template-columns:1fr}}
+#map{height:clamp(420px,62vh,620px);border-radius:14px;border:1px solid var(--line);background:#101512;overflow:hidden;z-index:1}
+.leaflet-container{font-family:var(--ui);background:#101512}.leaflet-tile-pane{filter:brightness(1.15) saturate(.8)}
+.leaflet-control-attribution{background:rgba(13,16,14,.75)!important;color:var(--mut)!important;font-size:10px}.leaflet-control-attribution a{color:var(--brass2)!important}
+.leaflet-control-zoom a{background:var(--panel)!important;color:var(--ink)!important;border-color:var(--line)!important}
+.pl{display:flex;flex-direction:column;gap:10px}
+.pl .grp{font:700 10px var(--ui);letter-spacing:.22em;text-transform:uppercase;color:var(--mut);margin:6px 0 0}
+.pi{display:grid;grid-template-columns:14px 1fr auto;gap:12px;align-items:center;text-align:left;width:100%;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;color:var(--ink);cursor:pointer;font:inherit;transition:border-color .2s,background .2s;touch-action:manipulation}
+.pi:hover{border-color:rgba(201,164,108,.5)}.pi.on{border-color:var(--brass);background:#1c241f}
+.pi i{width:12px;height:12px;border-radius:50%;background:var(--c)}
+.pi b{display:block;font:600 14.5px var(--ui)}.pi span{font-size:12.5px;color:var(--mut)}
+.pi em{font:400 24px/1 var(--disp);font-style:normal;text-align:right;white-space:nowrap}.pi em small{display:block;font:600 10.5px var(--ui);color:var(--mut);letter-spacing:.04em;margin-top:3px}
+.hm{width:26px;height:26px;border-radius:50%;background:var(--brass);border:3px solid #fff;box-shadow:0 0 0 0 rgba(201,164,108,.7);animation:pls 2.2s infinite}
+@keyframes pls{70%{box-shadow:0 0 0 18px rgba(201,164,108,0)}100%{box-shadow:0 0 0 0 rgba(201,164,108,0)}}
+.dm{width:16px;height:16px;border-radius:50%;background:var(--c);border:2px solid #0d100e;box-shadow:0 0 0 1px var(--c)}
+.dm.sel{width:20px;height:20px;box-shadow:0 0 0 4px rgba(239,233,220,.25),0 0 0 1px var(--c)}
+.lblk{background:rgba(13,16,14,.88)!important;color:var(--ink)!important;border:1px solid var(--line)!important;border-radius:8px!important;font:600 11.5px var(--ui)!important;padding:4px 8px!important;box-shadow:none!important}
+.lblk:before{display:none!important}
+.mpn{font-size:12.5px;color:var(--mut);margin-top:16px;max-width:820px}
+/* path */
+.pf{padding:clamp(70px,9vw,130px) 0 30px}
+.tl{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:44px;border-top:1px solid var(--line)}
+@media(max-width:900px){.tl{grid-template-columns:1fr 1fr}}@media(max-width:540px){.tl{grid-template-columns:1fr}}
+.tl div{padding:28px 24px 24px 0;position:relative}.tl div:before{content:"";position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--brass)}
+.tl b{display:block;font:300 44px/1 var(--disp);color:var(--brass);margin-top:6px}.tl h3{font:600 12px var(--ui);letter-spacing:.18em;text-transform:uppercase;margin:12px 0 8px}.tl p{margin:0;color:var(--mut);font-size:14.5px}
+.vf{margin-top:60px;display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
+@media(max-width:800px){.vf{grid-template-columns:1fr}}
+.vf li{margin:0 0 14px;color:var(--mut);font-size:14.5px}.vf li b{color:var(--ink)}.vf ul{list-style:none;padding:0;margin:0}
+footer{margin-top:80px;border-top:1px solid var(--line);padding:34px 0 calc(54px + env(safe-area-inset-bottom,0px));color:var(--mut);font-size:12.5px}
+footer .wm{font:500 22px var(--disp);letter-spacing:.34em;color:var(--ink);text-transform:uppercase;margin-bottom:14px}
+/* lightbox */
+#lb{position:fixed;inset:0;z-index:300;background:rgba(6,8,7,.95);display:none;align-items:center;justify-content:center;flex-direction:column;padding:18px}#lb.on{display:flex}
+#lb img{max-width:100%;max-height:calc(100svh - 120px);border-radius:8px}#lb h3{font:400 28px var(--disp);margin:14px 0 2px;text-align:center}#lb p{margin:0;color:var(--mut);font-size:13px;text-align:center}
+#lb button{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:14px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:rgba(239,233,220,.08);color:var(--ink);font-size:22px;cursor:pointer}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s,transform .9s}.rv.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){#hero .hi{animation:none}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style></head><body>
+
+<nav id="nav"><a class="wm" href="#top">Caroline</a><a class="l" href="#vision">The vision</a><a class="l" href="#rooms">Room by room</a><a class="l" href="#exterior">Exterior</a><a class="l" href="#numbers">Numbers</a><a class="l" href="#market">Market</a><a class="l" href="#map-sec">Location</a><a class="cta" href="#numbers">Run the numbers</a></nav>
+<nav id="rail" aria-label="Rooms"></nav>
+
+<header id="hero"><div id="top"></div>
+<img class="hi on" id="h0" alt="Front of 514 Caroline with the covered porch, renovation concept" src="img/porch_after.jpg"><img class="hi" id="h1" alt="Side courtyard at 514 Caroline, renovation concept" src="img/courtyard_after.jpg">
+<div class="tag" id="htag" style="color:var(--brass2)">Concept render</div>
+<div class="wrap hc"><div class="eyebrow">A renovation proposal · Village of Milford, Michigan</div>
+<h1 style="margin-top:44px">514<br>Caroline<em>A 1901 farmhouse. A porch worth sitting on.</em></h1>
+<p class="sub">Keep the farmhouse character and the corner lot. Add a covered front porch and a side courtyard, open up the kitchen, and add a half bath off the laundry.</p></div>
+<div class="cue"></div>
+<div class="ribbon"><div class="wrap"><div><b>Built 1901</b><span>Farmhouse</span></div><div><b>3 bd · 1 ba</b><span>As listed</span></div><div><b>Corner lot</b><span>66 × 132 ft</span></div><div><b>1,529 sq ft</b><span>Listed, to confirm</span></div><div><b>$299,999</b><span>Asking</span></div></div></div></header>
+
+<section class="mf" id="vision"><div class="wrap">
+<div class="eyebrow rv">The vision</div>
+<p class="big" id="mfp">Keep the farmhouse. Keep the corner lot. Give it the <em>TLC it has been waiting for.</em></p>
+<div class="scope"><div class="row"><div class="n">01</div><h3>Add a covered porch</h3><p>Extend the front entry into a full covered porch with warm timber posts, a stone base and landscape lighting.</p></div><div class="row"><div class="n">02</div><h3>Build an outdoor room</h3><p>Turn the side yard into a paver courtyard with a grill station, outdoor TV, dining table and café string lights.</p></div><div class="row"><div class="n">03</div><h3>Open the kitchen</h3><p>A modern island, cream cabinetry and warm wood, a small dining area, and the basement stair access kept in place.</p></div><div class="row"><div class="n">04</div><h3>Warm floors throughout</h3><p>Warm wood-tone flooring replaces the carpet in the living room, stairs, office and bedrooms.</p></div><div class="row"><div class="n">05</div><h3>Refresh the bath</h3><p>Same fixture locations, with a new vanity and a glass walk-in shower in place of the tub.</p></div><div class="row"><div class="n">06</div><h3>Add a half bath</h3><p>The large laundry and mudroom gets built-in storage, a bench and a proposed half bath, so the house is no longer one-bath.</p></div></div></div></section>
+
+<section id="rooms"><div class="wrap rooms-h"><div class="eyebrow">Room by room · scroll to reveal</div>
+<h2>Ten views inside. <em>Before and after.</em></h2><p>Each room opens as the before photo. Keep scrolling and the renovation concept sweeps across it.</p></div>
+<div id="chaps"></div></section>
+
+<section id="exterior"><div class="wrap rooms-h"><div class="eyebrow">Outside · porch and courtyard</div>
+<h2>Two views outside. <em>Front and side.</em></h2><p>The blue siding and farmhouse shape stay. The concept adds a covered front porch facing the street and turns the side yard into an outdoor room.</p></div>
+<div id="xchaps"></div></section>
+
+
+
+<section class="deal" id="numbers"><div class="wrap">
+<div class="eyebrow">The numbers · yours to move</div>
+<h2>Move the numbers. <em>Watch the deal change.</em></h2>
+<p class="lead">Drag a slider or pick a scenario. Profit, return, break-even and the market scale below all respond as you go.</p>
+<div class="note"><b>Draft starting numbers.</b> The offer, renovation budget and resale price are placeholders drafted from the listing, recent Village of Milford sales and the lookbook scope. Replace them with your offer, contractor quotes and agent pricing.</div>
+<div class="dg">
+<div class="pnl"><span class="eyebrow">Your assumptions</span>
+<div class="pre" id="pre"><button data-p="390000">Cautious · $390K</button><button data-p="425000">Working case · $425K</button><button data-p="460000">Strong finish · $460K</button><button id="rs">Reset</button></div>
+<div class="fld"><div class="t">Purchase price <b id="pv"></b></div><input id="p" type="range" min="260000" max="310000" step="2500" value="290000"></div>
+<div class="fld"><div class="t">Renovation budget <b id="rv"></b></div><input id="r" type="range" min="50000" max="160000" step="5000" value="85000"></div>
+<div class="fld"><div class="t">Target sale price <b id="vv"></b></div><input id="v" type="range" min="340000" max="500000" step="5000" value="425000"></div>
+<div class="fld"><div class="t">Selling costs <b id="sv"></b></div><input id="s" type="range" min="5" max="8" step="0.5" value="7"></div>
+<p class="fine">Buying costs fixed at $6,000. Before ownership costs, taxes and the value of your own labor.</p></div>
+<div class="pnl"><span class="eyebrow">Modeled result</span>
+<div class="gw"><div class="ring"><svg viewBox="0 0 160 160"><circle class="bgc" cx="80" cy="80" r="70"/><circle class="fg" id="fg" cx="80" cy="80" r="70" stroke-dasharray="439.8" stroke-dashoffset="439.8"/></svg><div class="mid"><b id="roi"></b><span>Return on cash</span></div></div>
+<div><div class="eyebrow" style="color:var(--mut)">Modeled profit</div><div id="m"></div><div id="short"></div></div></div>
+<div class="kpis"><div><span>Break-even sale</span><b id="be"></b></div><div><span>Cash in</span><b id="ci"></b></div><div><span>Target per sq ft</span><b id="psf"></b></div><div><span>Selling costs</span><b id="sc"></b></div></div>
+<div class="stk" id="stk"></div><div class="lg" id="lg"></div></div>
+</div></div></section>
+
+<section class="mk" id="market"><div class="wrap">
+<div class="eyebrow">Market evidence</div>
+<h2>What nearby homes <em>actually sold for.</em></h2>
+<p class="lead">Closed sales of older homes in the Village of Milford, September to November 2026. Tap any card to open its Zillow page.</p>
+<div class="cg">
+<a class="cc subj" href="https://www.zillow.com/homedetails/514-Caroline-Milford-MI-48381/24444503_zpid/" target="_blank" rel="noopener"><div class="k">This house · asking</div><div class="p">$300K</div><div class="a">514 Caroline</div><div class="d">Listed Nov 6 at $325K, cut to $299,999 on Nov 15 · $196/sq ft</div><div class="m"><span>1,529 sq ft</span><span>3 bd · 1 ba</span><span>1901</span></div><div class="sf">View listing on Zillow ↗</div></a>
+<a class="cc" href="https://www.zillow.com/homedetails/319-Hickory-St-Milford-MI-48381/24444023_zpid/" target="_blank" rel="noopener"><div class="k">Sold Sep 25, 2026</div><div class="p">$350K</div><div class="a">319 Hickory St</div><div class="d">Built 1910 on a small lot. Historic home with an updated kitchen and oversized island.</div><div class="m"><span>1,400 sq ft</span><span>3 / 1.5</span><span>$250/sq ft</span></div><div class="sf">Open on Zillow ↗</div></a>
+<a class="cc" href="https://www.zillow.com/homedetails/319-E-Commerce-St-Milford-MI-48381/24443917_zpid/" target="_blank" rel="noopener"><div class="k">Sold Nov 9, 2026</div><div class="p">$405K</div><div class="a">319 E Commerce St</div><div class="d">Built 1896, two-story colonial. Newer furnace, A/C, windows and water heater; three updated baths.</div><div class="m"><span>1,674 sq ft</span><span>3 / 3</span><span>$242/sq ft</span></div><div class="sf">Open on Zillow ↗</div></a>
+<a class="cc" href="https://www.zillow.com/homedetails/316-E-Liberty-St-Milford-MI-48381/24444070_zpid/" target="_blank" rel="noopener"><div class="k">Sold Oct 14, 2026</div><div class="p">$430K</div><div class="a">316 E Liberty St</div><div class="d">Built 1921 Craftsman, remodeled 2015. Updated plumbing, electrical and kitchen; minor paint and drywall left.</div><div class="m"><span>1,921 sq ft</span><span>3 / 1.5</span><span>$224/sq ft</span></div><div class="sf">Open on Zillow ↗</div></a>
+<a class="cc" href="https://www.zillow.com/homedetails/215-S-Houghton-St-Milford-MI-48381/24444467_zpid/" target="_blank" rel="noopener"><div class="k">Sold Sep 25, 2026</div><div class="p">$490K</div><div class="a">215 S Houghton St</div><div class="d">Same 66 × 132 lot size. Fully updated: roof, windows, HVAC, siding, kitchen and both baths.</div><div class="m"><span>1,700 sq ft</span><span>3 / 2</span><span>$288/sq ft</span></div><div class="sf">Open on Zillow ↗</div></a>
+</div>
+<div class="eyebrow" style="margin-top:70px">Where your numbers land</div>
+<div class="axis" id="axis"><div class="line"></div></div>
+<p id="vd"></p>
+<p class="small">Beds, baths and area are as shown on Zillow. 319 E Commerce and 316 E Liberty are the closest matches on age and style; 215 S Houghton shows what a fully updated house on the same lot size can bring. Lot size, garage, bath count and the condition of each sale differ, and seller concessions are not verified, so $/sq ft is for context only. These are preliminary comparisons, not an appraisal. Sales were checked on November 16, 2026.</p>
+</div></section>
+
+<section class="mp" id="map-sec"><div class="wrap">
+<div class="eyebrow">Location</div>
+<h2>Close to the people <em>and places that matter.</em></h2>
+<p class="lead">Driving distance and time from 514 Caroline to family and work. Tap a place to see the route.</p>
+<div class="mg"><div id="map" aria-label="Map of the house and key places"></div><div class="pl" id="pl"></div></div>
+<p class="mpn">The house is placed by an address lookup when the page loads; if that lookup fails it falls back to the center of the Village of Milford. Family locations are shown approximately, not at the exact address. Drive times come from OpenStreetMap routing without live traffic and are estimates; the two work locations use the city or township center, not the workplace address.</p>
+</div></section>
+
+<section class="pf" id="plan"><div class="wrap">
+<div class="eyebrow">The path forward</div>
+<h2>Commit in stages. <em>Resolve the big unknowns first.</em></h2>
+<div class="tl">
+<div><b>01</b><h3>Before an offer is binding</h3><p>Confirm measured area. Inspect the foundation, basement moisture, electrical, plumbing, roof and the septic system. Get local agent feedback on resale range.</p></div>
+<div><b>02</b><h3>Before renovation spending</h3><p>Written quotes for the porch, courtyard, kitchen, bath, half bath and flooring. Check permits and any Village of Milford rules for the porch addition. Lock a scope that fits the budget.</p></div>
+<div><b>03</b><h3>First year</h3><p>Essential repairs first, then the half bath, kitchen, bath, flooring and finishes, with the porch and courtyard last. Keep permits, receipts and before/after records.</p></div>
+<div><b>04</b><h3>At resale</h3><p>Refresh comps, recalculate selling costs, then set the list price.</p></div></div>
+<div class="eyebrow" style="margin-top:80px">Verify before committing</div>
+<div class="vf"><ul><li><b>Age of the house:</b> built in 1901. Check for knob-and-tube wiring, lead paint, and foundation and basement moisture before committing to the budget.</li>
+<li><b>Septic:</b> the listing shows a septic sewer. Get a septic inspection, and confirm the system can take a second bathroom.</li>
+<li><b>Half bath:</b> the listing says the laundry/mudroom is big enough for a half or full bath. Plumbing, venting and permits still need a plumber's review.</li></ul>
+<ul><li><b>Porch and courtyard:</b> the porch extension and outdoor kitchen need permits, setback checks on the corner lot, and real quotes. They are the easiest items to scale back if the budget runs tight.</li>
+<li><b>Draft numbers:</b> offer, renovation budget and resale price are placeholders. Replace them before relying on the profit figure.</li>
+<li><b>Margin is thin at the working case:</b> about $14K at $425K resale, and a loss at $390K. Cost control is the project.</li></ul></div>
+</div></section>
+
+<footer><div class="wrap"><div class="wm">Caroline</div>All “after” images are AI-generated design concepts based on the before photos (514 Caroline renovation lookbook, November 2026). They are not construction drawings or a promise of existing conditions. Allowances are planning figures, not contractor quotes. Sale prices are preliminary comparisons, not an appraisal; no physical inspection or formal comparative market analysis has been performed. Prepared November 16, 2026.</div></footer>
+
+<div id="lb"><button aria-label="Close">×</button><img alt=""><h3></h3><p></p></div>
+
+<script>
+const ROOMS=[{"k": "kview1", "t": "Open the kitchen", "c": "A modern island, a small dining area under a drum pendant and warm wood floors. The basement stair access stays where it is, with a new railing.", "z": "Kitchen \u00b7 view 1 of 3", "r": 2.2798}, {"k": "kview2", "t": "The island, straight on", "c": "Cream shaker cabinetry, stainless appliances and a wood island with seating for three in place of the two-level peninsula.", "z": "Kitchen \u00b7 view 2 of 3", "r": 2.1517}, {"k": "kview3", "t": "Toward the stairs", "c": "The same warm wood and cream palette carries from the island back toward the staircase and dining area.", "z": "Kitchen \u00b7 view 3 of 3", "r": 2.9349}, {"k": "living", "t": "Living room and stairs", "c": "Warm wood flooring, a beam overhead, layered lighting and refreshed stair details replace the carpet and bare walls.", "z": "Living room + stairs", "r": 0.82}, {"k": "office", "t": "A real office", "c": "A dedicated workspace with a desk, shelving and a sofa bed, so the room also works for overnight guests.", "z": "Office + den", "r": 2.1024}, {"k": "primary", "t": "A calmer primary bedroom", "c": "Soft neutral bedding, natural textures, warm floors and updated lighting. The primary is on the entry level.", "z": "Primary bedroom", "r": 2.637}, {"k": "guest", "t": "Guest bedroom", "c": "The wood paneling gives way to a light, layered guest room with modern finishes and storage.", "z": "Guest bedroom", "r": 2.518}, {"k": "bath", "t": "Bathroom + walk-in shower", "c": "Same fixture locations, so no plumbing moves. A new vanity, wainscot and a glass walk-in shower replace the blue and yellow finishes.", "z": "Bathroom", "r": 1.108}, {"k": "laundry", "t": "Laundry + mudroom", "c": "Built-in laundry storage, a bench and hooks, and the proposed half bath through the doorway. The listing notes the room is big enough for one.", "z": "Laundry + mudroom", "r": 1.113}, {"k": "mudroom", "t": "A working entry", "c": "A small space made useful: shoe cubbies, hooks and an entry bench by the side door.", "z": "Mudroom entry", "r": 0.7273}];const XR=[{"k": "porch", "t": "A covered front porch", "c": "An extended covered entry with warm timber posts, a stone base and landscape lighting. The blue siding and farmhouse shape stay.", "z": "Exterior \u00b7 1 of 2", "r": 1.5288}, {"k": "courtyard", "t": "An outdoor room", "c": "The side yard becomes a gathering space: a grill station, outdoor TV, dining table and caf\u00e9 string lights. The before photo is shown in the corner of the concept.", "z": "Exterior \u00b7 2 of 2", "r": 1.5381, "one": 1}];
+const $=id=>document.getElementById(id),cl=(x,a=0,b=1)=>Math.max(a,Math.min(b,x)),ea=x=>x*x*(3-2*x);
+/* nav + hero cross-fade */
+const nav=$("nav");function nv(){nav.classList.toggle("on",scrollY>40)}addEventListener("scroll",nv,{passive:true});nv();
+const HL=["porch_after","courtyard_after","kview2_after","kview1_after"],HT=["Front porch · concept","Courtyard · concept","Kitchen · concept","Kitchen + dining · concept"];let hs=0,hi=0;const h0=$("h0"),h1=$("h1"),ht=$("htag");HL.slice(2).forEach(k=>{const i=new Image();i.src="img/"+k+".jpg"});setInterval(()=>{hi=(hi+1)%HL.length;hs^=1;const nx=hs?h1:h0,pv=hs?h0:h1;nx.src="img/"+HL[hi]+".jpg";nx.classList.add("on");pv.classList.remove("on");ht.textContent=HT[hi]},5200);
+/* manifesto word reveal */
+const mp=$("mfp");const mw=[];(function wrap(n){[...n.childNodes].forEach(c=>{if(c.nodeType===3){const f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(t=>{if(!t.trim()){f.appendChild(document.createTextNode(t));return}const s=document.createElement("span");s.className="w";s.textContent=t;mw.push(s);f.appendChild(s)});c.replaceWith(f)}else if(c.nodeType===1)wrap(c)})})(mp);
+function mf(){const r=mp.getBoundingClientRect(),p=cl((innerHeight*.9-r.top)/(innerHeight*.55+r.height*.5));const n=Math.floor(p*mw.length*1.15);mw.forEach((w,i)=>w.classList.toggle("on",i<n))}
+/* chapters */
+const chaps=$("chaps"),rail=$("rail"),els=[],xels=[];
+function mk(L,box,pf,isRoom){L.forEach((r,i)=>{const s=document.createElement("div");s.className="chap";s.id=pf+(i+1);
+s.innerHTML='<div class="st"><div class="bgb" style="background-image:url(img/'+r.k+'_after.jpg)"></div><div class="txt"><div class="num">'+String(i+1).padStart(2,"0")+'<small>/ '+L.length+'</small></div><div class="zn">'+r.z+'</div><h3>'+r.t+'</h3><p class="cp">'+r.c+'</p><div class="chips">'+(r.one?'<span class="chip on">Before · inset</span><span class="chip on">After · concept</span>':'<span class="chip on">Before</span><span class="chip">After · concept</span>')+'</div></div>'+
+'<div class="frame" style="--r:'+r.r+'">'+(r.one?'':'<img src="img/'+r.k+'_before.jpg" alt="'+r.t+' before"'+(i<2&&isRoom?'':' loading="lazy"')+' decoding="async">')+'<img class="a'+(r.one?' one':'')+'" src="img/'+r.k+'_after.jpg" alt="'+r.t+' after concept"'+(i<2&&isRoom?'':' loading="lazy"')+' decoding="async">'+(r.one?'':'<div class="ln"></div><span class="tg l">Before</span><span class="tg r">After</span>')+'</div><div class="pr"><i></i></div></div>';
+box.appendChild(s);if(r.one){s.classList.add('one');}const f=s.querySelector(".frame"),chips=s.querySelectorAll(".chip"),pr=s.querySelector(".pr i");(isRoom?els:xels).push({s,f,chips,pr});
+if(!isRoom)return;const a=document.createElement("a");a.href="#c"+(i+1);a.innerHTML="<span>"+String(i+1).padStart(2,"0")+" · "+r.t+"</span>";rail.appendChild(a)})}
+mk(ROOMS,chaps,"c",1);mk(XR,$("xchaps"),"x",0);
+const dots=[...rail.children];
+function ch(){let cur=-1;xels.forEach(e=>{const r=e.s.getBoundingClientRect(),h=e.s.offsetHeight-innerHeight;if(r.bottom<-50||r.top>innerHeight+50)return;const p=cl(-r.top/h);if(e.s.classList.contains("one")){e.pr.style.width=(p*100)+"%";return}const w=ea(cl((p-.1)/.5));e.f.style.setProperty("--w",(w*100)+"%");e.f.querySelector(".ln").style.opacity=w>.01&&w<.99?.9:0;e.chips[0].classList.toggle("on",w<.5);e.chips[1].classList.toggle("on",w>=.5);e.pr.style.width=(p*100)+"%"});els.forEach((e,i)=>{const r=e.s.getBoundingClientRect(),h=e.s.offsetHeight-innerHeight;if(r.bottom<-50||r.top>innerHeight+50)return;const p=cl(-r.top/h);const w=ea(cl((p-.1)/.5));e.f.style.setProperty("--w",(w*100)+"%");e.f.querySelector(".ln").style.opacity=w>.01&&w<.99?.9:0;e.chips[0].classList.toggle("on",w<.5);e.chips[1].classList.toggle("on",w>=.5);e.pr.style.width=(p*100)+"%";if(r.top<=innerHeight*.5&&r.bottom>innerHeight*.5)cur=i});
+const first=els[0].s.getBoundingClientRect().top,last=els[els.length-1].s.getBoundingClientRect().bottom;rail.classList.toggle("on",first<innerHeight*.5&&last>innerHeight*.5);dots.forEach((d,i)=>d.classList.toggle("cur",i===cur))}
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("on");io.unobserve(e.target)}}),{threshold:.15});document.querySelectorAll(".rv,.scope .row").forEach(e=>{e.classList.add("rv");io.observe(e)});
+let tk=0;function on(){if(!tk)tk=requestAnimationFrame(()=>{tk=0;mf();ch()})}addEventListener("scroll",on,{passive:true});addEventListener("resize",on);on();
+/* deal */
+const f$=n=>(n<0?"−$":"$")+Math.abs(Math.round(n)).toLocaleString("en-US"),K=n=>"$"+Math.round(n/1000)+"K",SQ=1529,MIN=250000,MAX=550000;
+const ax=$("axis");[300,400,500].forEach(t=>{const d=document.createElement("div");d.className="tick";d.style.left="calc(34px + (100% - 68px) * "+((t*1000-MIN)/(MAX-MIN))+")";d.textContent="$"+t+"K";ax.appendChild(d)});
+const X=v=>"calc(34px + (100% - 68px) * "+cl((v-MIN)/(MAX-MIN))+")";
+function pin(cls,v,top,label,href,h){const a=document.createElement(href?"a":"div");a.className="pin "+cls;a.style.left=X(v);a.style.setProperty("--h",h+"px");if(href){a.href=href;a.target="_blank";a.rel="noopener"}a.innerHTML="<b>"+K(v)+"</b><span>"+label+"</span><i></i>";ax.appendChild(a);return a}
+const Z="https://www.zillow.com/homedetails/";
+pin("up cmp",299999,0,"Asking",Z+"514-Caroline-Milford-MI-48381/24444503_zpid/",34);
+pin("up cmp",350000,0,"Hickory ↗",Z+"319-Hickory-St-Milford-MI-48381/24444023_zpid/",84);
+pin("up cmp",405000,0,"Commerce ↗",Z+"319-E-Commerce-St-Milford-MI-48381/24443917_zpid/",34);
+pin("up cmp",430000,0,"Liberty ↗",Z+"316-E-Liberty-St-Milford-MI-48381/24444070_zpid/",84);
+pin("up cmp",490000,0,"Houghton ↗",Z+"215-S-Houghton-St-Milford-MI-48381/24444467_zpid/",34);
+const pp=pin("dn me",290000,0,"Your purchase",null,34),pt=pin("dn me",425000,0,"Your target sale",null,84);
+function calc(){const p=+$("p").value,r=+$("r").value,v=+$("v").value,s=+$("s").value,ci=p+r+6000,sc=v*s/100,m=v-sc-ci,roi=m/ci*100,be=ci/(1-s/100),psf=v/SQ;
+["p","r","v","s"].forEach(i=>{const e=$(i);e.style.setProperty("--pct",((e.value-e.min)/(e.max-e.min)*100)+"%")});
+$("pv").textContent=f$(p);$("rv").textContent=f$(r);$("vv").textContent=f$(v);$("sv").textContent=s.toFixed(1)+"%";
+const e=$("m");e.textContent=f$(m);e.style.color=m<0?"var(--bad)":"var(--good)";$("short").textContent=m<0?"Costs exceed the sale price by "+f$(-m)+".":"";
+$("roi").textContent=roi.toFixed(1)+"%";const fg=$("fg");fg.style.strokeDashoffset=439.8*(1-cl(roi/40));fg.style.stroke=m<0?"var(--bad)":"var(--good)";
+$("be").textContent=f$(be);$("ci").textContent=f$(ci);$("psf").textContent="$"+Math.round(psf);$("sc").textContent=f$(sc);
+const sg=[[p,"#6f8a76","Purchase"],[r,"#c9a46c","Renovation"],[6000,"#e2c898","Buying costs"],[sc,"#5b6660","Selling costs"],[Math.max(0,m),"#8fd0a2","Profit"]],tot=sg.reduce((a,x)=>a+x[0],0);
+$("stk").innerHTML=sg.map(x=>'<i title="'+x[2]+' '+f$(x[0])+'" style="width:'+(x[0]/tot*100)+'%;background:'+x[1]+'"></i>').join("");
+$("lg").innerHTML=sg.map(x=>'<span style="--c:'+x[1]+'">'+x[2]+' '+f$(x[0])+'</span>').join("");
+pp.style.left=X(p);pp.querySelector("b").textContent=K(p);pt.style.left=X(v);pt.querySelector("b").textContent=K(v);
+let w;if(v>490000)w="above every comp listed";else if(v>430000)w="between the Liberty ($430K) and Houghton ($490K) sales";else if(v>405000)w="between the Commerce ($405K) and Liberty ($430K) sales";else if(v>350000)w="between the Hickory ($350K) and Commerce ($405K) sales";else w="at or below the Hickory ($350K) sale";
+let q=psf>288?" That is above the top of the comp set ($224–$288/sq ft), so it leans on finish quality, the half bath and a verified size.":psf>=250?" That is in the upper part of the comp set, near the fully updated Houghton sale ($288/sq ft).":psf>=224?" That sits inside the comp set ($224–$288/sq ft), near the Commerce and Liberty sales.":" That is below every comp on a per-foot basis.";
+$("vd").textContent="A target of "+f$(v)+" is $"+Math.round(psf)+"/sq ft on the listed 1,529 sq ft, "+w+"."+q;
+document.querySelectorAll("#pre button[data-p]").forEach(b=>b.classList.toggle("on",+b.dataset.p===v))}
+["p","r","v","s"].forEach(i=>$(i).addEventListener("input",calc));
+document.querySelectorAll("#pre button[data-p]").forEach(b=>b.onclick=()=>{$("v").value=b.dataset.p;calc()});
+$("rs").onclick=()=>{$("p").value=290000;$("r").value=85000;$("v").value=425000;$("s").value=7;calc()};
+calc();
+
+/* map */
+(function(){
+let HOME=[42.5917,-83.6004];
+const PL=[{id:"mom",n:"The Kark house",s:"Milford",ll:[42.59,-83.60],c:"#e2c898",g:"Family"},{id:"pp",n:"The Allman house",s:"Farmington Hills",ll:[42.51,-83.41],c:"#e2c898",g:"Family"},{id:"sis",n:"Delaney\u2019s house",s:"Brighton",ll:[42.5317,-83.7846],c:"#e2c898",g:"Family"},{id:"psis",n:"Ari\u2019s house",s:"Downtown Detroit",ll:[42.3315,-83.0466],c:"#e2c898",g:"Family"},{id:"w",n:"Commonwealth",s:"Ann Arbor",ll:[42.2814,-83.7485],c:"#8fc9d9",g:"Work"},{id:"pw",n:"FARE",s:"Brownstown",ll:[42.1529,-83.2753],c:"#8fc9d9",g:"Work"}];
+const hav=(a,b)=>{const R=3958.8,r=x=>x*Math.PI/180,dl=r(b[0]-a[0]),dn=r(b[1]-a[1]),h=Math.sin(dl/2)**2+Math.cos(r(a[0]))*Math.cos(r(b[0]))*Math.sin(dn/2)**2;return 2*R*Math.asin(Math.sqrt(h))};
+PL.forEach(p=>{p.mi=hav(HOME,p.ll)*1.3;p.min=p.mi/38*60;p.est=true});
+const pl=$("pl");let map,sel=null,hasL=typeof L!=="undefined",lines={},marks={};
+const fm=m=>m>=60?Math.floor(m/60)+" hr "+Math.round(m%60)+" min":Math.round(m)+" min";
+function list(){pl.innerHTML="";["Family","Work"].forEach(g=>{const h=document.createElement("div");h.className="grp";h.textContent=g;pl.appendChild(h);PL.filter(p=>p.g===g).sort((a,b)=>a.min-b.min).forEach(p=>{const b=document.createElement("button");b.className="pi"+(sel===p.id?" on":"");b.style.setProperty("--c",p.c);b.innerHTML="<i></i><div><b>"+p.n+"</b><span>"+p.s+"</span></div><em>"+fm(p.min)+"<small>"+Math.round(p.mi)+" mi"+(p.est?" est.":"")+"</small></em>";b.onclick=()=>pick(p.id);pl.appendChild(b)})})}
+function pick(id){sel=sel===id?null:id;list();if(!hasL)return;PL.forEach(p=>{const on=p.id===sel;if(lines[p.id])lines[p.id].setStyle({weight:on?5:2,opacity:on?.95:(sel?.12:.4)});marks[p.id].getElement()&&marks[p.id].getElement().firstChild.classList.toggle("sel",on)});
+if(sel){const p=PL.find(x=>x.id===sel);map.fitBounds(L.latLngBounds([HOME,p.ll]),{padding:[70,70],maxZoom:12});lines[sel]&&lines[sel].bringToFront()}else map.fitBounds(L.latLngBounds([HOME].concat(PL.map(p=>p.ll))),{padding:[50,50]})}
+list();
+if(!hasL){$("map").innerHTML='<div style="display:grid;place-content:center;height:100%;color:var(--mut);text-align:center;padding:20px">The map could not load. Distances are listed alongside.</div>';return}
+map=L.map("map",{scrollWheelZoom:false,zoomControl:true,attributionControl:true});
+L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",{attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',subdomains:"abcd",maxZoom:19}).addTo(map);
+const hmk=L.marker(HOME,{icon:L.divIcon({className:"",html:'<div class="hm"></div>',iconSize:[26,26],iconAnchor:[13,13]}),zIndexOffset:1000}).addTo(map).bindTooltip("514 Caroline",{permanent:true,direction:"top",offset:[0,-14],className:"lblk"});
+PL.forEach(p=>{const m=L.marker(p.ll,{icon:L.divIcon({className:"",html:'<div class="dm" style="--c:'+p.c+'"></div>',iconSize:[20,20],iconAnchor:[10,10]})}).addTo(map);m.bindTooltip(p.n+" · "+p.s,{direction:"top",offset:[0,-8],className:"lblk"});m.on("click",()=>pick(p.id));marks[p.id]=m;
+lines[p.id]=L.polyline([HOME,p.ll],{color:p.c,weight:2,opacity:.4,dashArray:"4 6"}).addTo(map)});
+map.fitBounds(L.latLngBounds([HOME].concat(PL.map(p=>p.ll))),{padding:[50,50]});
+$("map").addEventListener("click",()=>map.scrollWheelZoom.enable(),{once:true});
+function routes(){PL.forEach(p=>{fetch("https://router.project-osrm.org/route/v1/driving/"+HOME[1]+","+HOME[0]+";"+p.ll[1]+","+p.ll[0]+"?overview=simplified&geometries=geojson").then(r=>r.json()).then(d=>{const r=d.routes&&d.routes[0];if(!r)return;p.mi=r.distance/1609.34;p.min=r.duration/60;p.est=false;map.removeLayer(lines[p.id]);lines[p.id]=L.polyline(r.geometry.coordinates.map(c=>[c[1],c[0]]),{color:p.c,weight:2,opacity:sel?(sel===p.id?.95:.12):.4}).addTo(map);if(sel===p.id){lines[p.id].setStyle({weight:5,opacity:.95})}list()}).catch(()=>{})});
+}
+fetch("https://nominatim.openstreetmap.org/search?format=json&limit=1&q="+encodeURIComponent("514 Caroline St, Milford, MI 48381")).then(r=>r.json()).then(d=>{if(d&&d[0]){HOME=[+d[0].lat,+d[0].lon];hmk.setLatLng(HOME);PL.forEach(p=>{p.mi=hav(HOME,p.ll)*1.3;p.min=p.mi/38*60;if(lines[p.id]){lines[p.id].setLatLngs([HOME,p.ll])}});list();map.fitBounds(L.latLngBounds([HOME].concat(PL.map(p=>p.ll))),{padding:[50,50]})}}).catch(()=>{}).finally(routes);
+})();
+</script></body></html>
