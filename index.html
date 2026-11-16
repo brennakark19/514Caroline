@@ -160,7 +160,7 @@ a.cc:hover{transform:translateY(-4px);border-color:var(--brass)}
 .mg{display:grid;grid-template-columns:1.55fr 1fr;gap:clamp(14px,2vw,26px);margin-top:36px;align-items:stretch}
 @media(max-width:900px){.mg{grid-template-columns:1fr}}
 #map{height:clamp(420px,62vh,620px);border-radius:14px;border:1px solid var(--line);background:#101512;overflow:hidden;z-index:1}
-.leaflet-container{font-family:var(--ui);background:#101512}.leaflet-tile-pane{filter:brightness(1.15) saturate(.8)}
+.leaflet-container{font-family:var(--ui);background:#101512}.leaflet-tile-pane{filter:invert(1) hue-rotate(185deg) brightness(.86) contrast(.92) saturate(.55)}
 .leaflet-control-attribution{background:rgba(13,16,14,.75)!important;color:var(--mut)!important;font-size:10px}.leaflet-control-attribution a{color:var(--brass2)!important}
 .leaflet-control-zoom a{background:var(--panel)!important;color:var(--ink)!important;border-color:var(--line)!important}
 .pl{display:flex;flex-direction:column;gap:10px}
@@ -357,7 +357,7 @@ if(sel){const p=PL.find(x=>x.id===sel);map.fitBounds(L.latLngBounds([HOME,p.ll])
 list();
 if(!hasL){$("map").innerHTML='<div style="display:grid;place-content:center;height:100%;color:var(--mut);text-align:center;padding:20px">The map could not load. Distances are listed alongside.</div>';return}
 map=L.map("map",{scrollWheelZoom:false,zoomControl:true,attributionControl:true});
-L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",{attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',subdomains:"abcd",maxZoom:19}).addTo(map);
+L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',maxZoom:18}).addTo(map);
 const hmk=L.marker(HOME,{icon:L.divIcon({className:"",html:'<div class="hm"></div>',iconSize:[26,26],iconAnchor:[13,13]}),zIndexOffset:1000}).addTo(map).bindTooltip("514 Caroline",{permanent:true,direction:"top",offset:[0,-14],className:"lblk"});
 PL.forEach(p=>{const m=L.marker(p.ll,{icon:L.divIcon({className:"",html:'<div class="dm" style="--c:'+p.c+'"></div>',iconSize:[20,20],iconAnchor:[10,10]})}).addTo(map);m.bindTooltip(p.n+" · "+p.s,{direction:"top",offset:[0,-8],className:"lblk"});m.on("click",()=>pick(p.id));marks[p.id]=m;
 lines[p.id]=L.polyline([HOME,p.ll],{color:p.c,weight:2,opacity:.4,dashArray:"4 6"}).addTo(map)});
